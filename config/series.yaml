@@ -3,18 +3,18 @@ couple-things:
   caption_template: "{hook}\n\n#couplethings #couplehumor #relatablecouples #animation #shorts"
   default_length_sec: 35
   default_shot_count: 6
-  characters: [mei, sam]
+  characters: [wife, husband]
 
 inner-monologue:
-  display_name: "Sam's Inner Voice"
+  display_name: "Inner Voice"
   caption_template: "{hook}\n\n#innermonologue #couplehumor #animation #shorts"
   default_length_sec: 25
   default_shot_count: 4
-  characters: [sam]
+  characters: [husband]
 
-couple-vs-tech:
-  display_name: "Couple vs. Tech"
-  caption_template: "{hook}\n\n#wfh #couplehumor #techhumor #animation #shorts"
+couple-wfh:
+  display_name: "Couple WFH"
+  caption_template: "{hook}\n\n#wfh #couplehumor #remoteworkhumor #animation #shorts"
   default_length_sec: 40
   default_shot_count: 6
-  characters: [mei, sam, ken_tanaka]
+  characters: [wife, husband]

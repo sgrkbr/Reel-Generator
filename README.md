@@ -1,6 +1,6 @@
 # Reel-Generator
 
-Higgsfield × TikTok 起点で **2D アニメのカップルあるあるショート** (Mei & Sam / 30-60s / 英語・グローバル) を量産し、Instagram Reels と YouTube Shorts へ横展開するための **戦略ドキュメント + 自動化パイプライン** リポジトリ。
+Higgsfield × TikTok 起点で **2D アニメのカップルあるあるショート** (Wife & Husband / 30-60s / 英語・グローバル) を量産し、Instagram Reels と YouTube Shorts へ横展開するための **戦略ドキュメント + 自動化パイプライン** リポジトリ。
 
 参考: TikTok [`@humor_animations`](https://www.tiktok.com/@humor_animations) (4.6M フォロワー)。
 
@@ -43,7 +43,7 @@ Higgsfield × TikTok 起点で **2D アニメのカップルあるあるショ�
 ## スコープ
 
 - ジャンル: 2D アニメ・カップルあるある (ベンチマーク: @humor_animations)
-- 主役: **Mei & Sam** / 補助キャラ: Ken Tanaka
+- 主役: **Wife & Husband** (匿名/汎用) — 固有名詞は使わない、誰でも自分ごと化できるように
 - 尺: 30-60s / アスペクト比: 9:16
 - 言語/市場: 英語 (グローバル)
 - 主戦場: TikTok → IG Reels / YouTube Shorts へ横展開

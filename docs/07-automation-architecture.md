@@ -183,27 +183,16 @@ GitHub Repo Secrets:
 
   プリフライト (`get_cost: true`) が課金実測と完全一致 (Seedance 2.0 video) → CI で予算超過を事前検知可能
 
-  ⚠️ **2回目試作 (Mei / Sam / ペア 3 枚を nano_banana_pro で生成)** で乖離発見:
+  ⚠️ **2回目試作 (wife / husband / ペア 3 枚を nano_banana_pro で生成)** で乖離発見:
   - Preflight: 2 credits/枚 → 合計 6 credits 想定
   - 実測: 28.5 credits 消費 (~9.5/枚) → **preflight が実コストを ~5x underreport**
   - 結果モデル名は `nano_banana_2` に server-side マップ。preflight の cost は最低見積りの可能性
   - **CI 予算ゲートでは `credits_exact` を直接使わず、モデル別に係数 (e.g. nano: ×5, seedance: ×1.0) を補正してから判定する**こと
 
-  ✅ **3回目試作で原因特定** (Mei/Sam 参照付きペア v2):
+  ✅ **3回目試作で原因特定** (wife/husband 参照付きペア v2):
   - Preflight: 2 credits、実測: 2 credits (740.68 → 738.68) で **完全一致**
   - 差分は **reference 画像の有無** だった可能性が高い。`medias[]` で参照を渡すと nano は通常コストで動き、text-only は追加処理 (auto-enhance / multi-sample) が走る挙動
   - **暫定ガイダンス**: nano_banana_pro は基本的に reference 画像と組み合わせて使う。text-only 一発生成は coefficient ×5 で見積る
-
-- ✅ **ユーザー Higgsfield ワークスペースの既存資産発見** (2026-06-06):
-
-  | 種別 | ID | 説明 |
-  | ---- | -- | ---- |
-  | Soul Character (trained) | `94133d2e-fcf9-445b-9527-3212f0c9beff` | "Ken Tanaka" — `text2image_soul_v2` 専用 |
-  | Reference Element (IP verified) | `ab984578-4915-4cc5-9129-a4781b16d564` | "Ken-Tanaka" — Seedance/Kling/Nano 等で `<<<id>>>` 埋込 |
-  | 既存ステージ画像 (soul_v2) | `78a1e5ff-af8f-4271-a311-bf8826445c28` | 青オックス + メガネ + 黒チノのキーフレーム |
-  | 既存 Kling 3.0 動画 (15s, 9:16) | `c74806d7-4a93-4eaf-bddd-752ca248e0bb` | プロダクションの先行サンプル |
-
-  → **キャラ "Ken Tanaka" を主役に確定**。シリーズ展開に必要な参照アセット群は既に揃っている
 
 - ⚠️ **環境制約発見**: このサンドボックスから Higgsfield アップロード用 CloudFront ホスト (`d276s3zg8h21b2.cloudfront.net`) への直接 PUT は "Host not in allowlist" でブロック。**GitHub Actions 側でも要確認** (allowlist がなければ問題ないはず、ローカル用クライアントには影響なし)
 - ⚠️ Reference Element `<<<id>>>` 埋込は Seedance 2.0 で `Error starting generation` を返す挙動を確認。**現状は start_image 経由が確実**。Element は Nano Banana / Cinema Studio 系で使う方針に切替

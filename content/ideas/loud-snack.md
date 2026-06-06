@@ -4,89 +4,94 @@ series: couple-things
 title: "The Loud Snack"
 length_sec: 30
 hook: "POV: she swears she was being quiet"
-characters: [mei, sam]
+characters: [wife, husband]
 status: pilot
 created: 2026-06-06
 shots:
   - id: s1
-    characters: [mei]
+    characters: [wife]
     props: [chip_bag_v1]
     keyframe_prompt: |
       Shot 1, 'The Loud Snack' opening. EXACT SAME modern adult 2D animation
       style as the reference characters. Dark cozy living room at night,
       dim cool moonlight through a window, navy couch in the background.
-      MEI mid-step tiptoeing toward an offscreen kitchen, holding the
-      reference chip bag low behind her back, guilty sneaky expression.
-      Composition leaves top third clear for title overlay. 9:16.
+      The wife character mid-step tiptoeing toward an offscreen kitchen,
+      holding the reference chip bag low behind her back, guilty sneaky
+      expression. Composition leaves top third clear for title overlay. 9:16.
     video_prompt: |
-      MEI tiptoeing in slow motion through a dark living room at night
+      The wife tiptoeing in slow motion through a dark living room at night
       toward the offscreen kitchen, holding the chip bag low behind her
       back. She glances over her shoulder with a guilty sneaky expression
       and takes another careful step. Quiet, suspenseful, comedic vibe.
   - id: s2
-    characters: [mei]
+    characters: [wife]
     props: [chip_bag_v1]
     keyframe_prompt: |
-      Close-up on MEI carefully pulling open the reference metallic chip
-      bag with both hands. Bag crinkled and slightly puffed. Wide eyes,
-      mouth tight in a panicked wince. Soft moonlight key from screen left.
+      Close-up on the wife character carefully pulling open the reference
+      metallic chip bag with both hands. Bag crinkled and slightly puffed.
+      Wide eyes, mouth tight in a panicked wince. Soft moonlight key from
+      screen left.
     video_prompt: |
-      Close-up on MEI carefully pulling open the chip bag. The bag CRINKLES
-      loudly. She freezes, eyes wider, mouth tightening into a panicked wince.
+      Close-up on the wife carefully pulling open the chip bag. The bag
+      CRINKLES loudly. She freezes, eyes wider, mouth tightening into a
+      panicked wince.
   - id: s3
-    characters: [sam]
+    characters: [husband]
     props: []
     keyframe_prompt: |
-      Overhead shot of SAM lying on his back in a dark bedroom at night,
-      head on a pillow, eyes wide open staring at the ceiling, expressionless
-      deadpan. White sheets, dim moonlight. High overhead camera.
+      Overhead shot of the husband character lying on his back in a dark
+      bedroom at night, head on a pillow, eyes wide open staring at the
+      ceiling, expressionless deadpan. White sheets, dim moonlight. High
+      overhead camera.
     video_prompt: |
-      Overhead shot of SAM lying on his back, eyes wide open staring at the
-      ceiling, completely deadpan. He very slowly blinks once. No other
-      movement. Tense quiet comedic timing.
+      Overhead shot of the husband lying on his back, eyes wide open
+      staring at the ceiling, completely deadpan. He very slowly blinks
+      once. No other movement. Tense quiet comedic timing.
   - id: s4
-    characters: [mei]
+    characters: [wife]
     props: [chip_bag_v1]
     keyframe_prompt: |
-      MEI sitting cross-legged on a navy couch in the dim living room at
-      night. Delicately placing a single chip into her mouth with intense
-      concentration, the reference chip bag balanced on her lap. Soft TV
-      blue glow on her face.
+      The wife character sitting cross-legged on a navy couch in the dim
+      living room at night. Delicately placing a single chip into her mouth
+      with intense concentration, the reference chip bag balanced on her
+      lap. Soft TV blue glow on her face.
     video_prompt: |
-      MEI on the couch slowly and ridiculously delicately placing a single
-      chip into her mouth with intense concentration. She chews silently,
-      then picks up the next chip. Slow comedic timing.
+      The wife on the couch slowly and ridiculously delicately placing a
+      single chip into her mouth with intense concentration. She chews
+      silently, then picks up the next chip. Slow comedic timing.
   - id: s5
-    characters: [mei, sam]
+    characters: [wife, husband]
     props: [chip_bag_v1]
     keyframe_prompt: |
-      Bright sunny morning kitchen. MEI at counter pouring coffee from a
-      French press, humming. SAM walking in from the right, deadpan,
-      holding the empty crumpled reference chip bag pinched between two
-      fingers like evidence.
+      Bright sunny morning kitchen. The wife at counter pouring coffee
+      from a French press, humming. The husband walking in from the right,
+      deadpan, holding the empty crumpled reference chip bag pinched
+      between two fingers like evidence.
     video_prompt: |
-      Bright sunny morning kitchen. MEI pouring coffee, totally relaxed.
-      SAM walks in from the right, deadpan, holding the empty crumpled
-      chip bag pinched between two fingers. He stops next to her.
+      Bright sunny morning kitchen. The wife pouring coffee, totally
+      relaxed. The husband walks in from the right, deadpan, holding the
+      empty crumpled chip bag pinched between two fingers. He stops next
+      to her.
   - id: s6
-    characters: [mei, sam]
+    characters: [wife, husband]
     props: [chip_bag_v1]
     keyframe_prompt: |
-      Two-shot, morning kitchen. MEI on LEFT looking up with an exaggerated
-      innocent expression, slight shrug, holding a coffee mug. SAM on
-      RIGHT staring directly at her, deadpan unconvinced, holding the
-      empty crumpled reference chip bag. Eye-level medium close-up.
+      Two-shot, morning kitchen. The wife on LEFT looking up with an
+      exaggerated innocent expression, slight shrug, holding a coffee mug.
+      The husband on RIGHT staring directly at her, deadpan unconvinced,
+      holding the empty crumpled reference chip bag. Eye-level medium
+      close-up.
     video_prompt: |
-      Two-shot. MEI looks up at SAM, exaggeratedly innocent shrug, holding
-      mug. SAM stares back, deadpan unconvinced, holding the empty chip
-      bag. After a beat MEI's eyebrows raise even higher in fake innocence
-      and she gives one slow blink.
+      Two-shot. The wife looks up at the husband, exaggeratedly innocent
+      shrug, holding mug. The husband stares back, deadpan unconvinced,
+      holding the empty chip bag. After a beat the wife's eyebrows raise
+      even higher in fake innocence and she gives one slow blink.
 ---
 
 # The Loud Snack
 
 ## Premise
-深夜 1:47、Mei が静かにしているつもりでチップス袋を開ける。Sam は寝室で全部聞いている。翌朝 Mei は "I was being quiet…" と平然と主張する。
+深夜 1:47、wife が静かにしているつもりでチップス袋を開ける。husband は寝室で全部聞いている。翌朝 wife は "I was being quiet…" と平然と主張する。
 
 ## Title card (0-3s, baked into S1)
 - Layout: 9:16, upper third, BELOW TikTok top safe zone (~180px from top)
@@ -99,41 +104,41 @@ shots:
 | Shot | Type | Text | Attach to |
 | ---- | ---- | ---- | --------- |
 | S1 | (title only) | — | — |
-| S2 | Thought 🫧 | `okay… slow…… slowly……` | Mei head |
-| S3 | Thought 🫧 | `she thinks I can't hear that.` | Sam head |
-| S4 | Thought 🫧 | `I am being SO quiet.` | Mei head |
+| S2 | Thought 🫧 | `okay… slow…… slowly……` | wife head |
+| S3 | Thought 🫧 | `she thinks I can't hear that.` | husband head |
+| S4 | Thought 🫧 | `I am being SO quiet.` | wife head |
 | S5 | Caption (lower-third) | `the next morning` | — |
-| S6 | Speech 💬 | `"I was being quiet…"` | Mei mouth |
+| S6 | Speech 💬 | `"I was being quiet…"` | wife mouth |
 
 吹き出し/テロップは編集アプリ (CapCut) で PNG/SVG オーバーレイ。テキストだけ A/B 差し替え可、再生成不要。
 
 ## Shots (6 × 5s = 30s)
 
 ### Shot 1 (0-5s) — "1:47 AM"
-- Dark living room at night, dim moonlight through window. Mei tiptoeing toward the kitchen, holding a chip bag behind her back, glancing back guiltily.
+- Dark living room at night, dim moonlight through window. The wife tiptoeing toward the kitchen, holding a chip bag behind her back, glancing back guiltily.
 - Caption: `1:47 AM`
 - Hook beat — the audience knows immediately something secret is happening.
 
 ### Shot 2 (5-10s) — "The Crinkle"
-- Close-up: Mei carefully pulls the chip bag open. The bag CRINKLES extremely loudly. She freezes, eyes wide, mouth in a wince.
+- Close-up: the wife carefully pulls the chip bag open. The bag CRINKLES extremely loudly. She freezes, eyes wide, mouth in a wince.
 - SFX: amplified bag crinkle (will be added in edit)
 - Caption: `*crinkle*`
 
 ### Shot 3 (10-15s) — "He Hears Everything"
-- Bedroom, dark. Sam lying on his back in bed, eyes wide open in the dark staring at the ceiling. Expressionless.
-- Caption: `Sam, 1:47 AM`
+- Bedroom, dark. The husband lying on his back in bed, eyes wide open in the dark staring at the ceiling. Expressionless.
+- Caption: `the husband, 1:47 AM`
 
 ### Shot 4 (15-20s) — "Ninja Mode"
-- Mei back on the couch, eating chips one at a time in ridiculous slow motion, intense concentration on her face. Each chip placed delicately in her mouth.
+- The wife back on the couch, eating chips one at a time in ridiculous slow motion, intense concentration on her face. Each chip placed delicately in her mouth.
 - No caption — let the visual carry it.
 
 ### Shot 5 (20-25s) — "The Morning After"
-- Bright kitchen, morning daylight. Mei casually pouring coffee, humming. Sam walks in deadpan, holding the empty chip bag with two fingers.
+- Bright kitchen, morning daylight. The wife casually pouring coffee, humming. The husband walks in deadpan, holding the empty chip bag with two fingers.
 - Caption: `the next morning`
 
 ### Shot 6 (25-30s) — "Punchline"
-- Two-shot reaction: Mei looks up innocently. Speech bubble caption: `"I was being quiet…"`. Sam stares directly at her, completely unconvinced. Beat. End frame.
-- Caption (Mei dialogue): `"I was being quiet…"`
+- Two-shot reaction: the wife looks up innocently. Speech bubble caption: `"I was being quiet…"`. The husband stares directly at her, completely unconvinced. Beat. End frame.
+- Caption (wife dialogue): `"I was being quiet…"`
 
 ## Captions taxonomy (burn-in word-by-word style)
 
@@ -147,7 +152,7 @@ Use the karaoke style we identified in Phase 1 — white sans-serif + black stro
 ## Production checklist
 
 - [x] Storyboard
-- [x] 6 keyframe images (nano_banana_pro, with Mei/Sam refs)
+- [x] 6 keyframe images (nano_banana_pro, with wife / husband refs)
 - [x] 6 video shots (Seedance 2.0, 5s, 720p, 9:16, std, genre=comedy)
 - [ ] Assembly via ffmpeg concat *(blocked locally — sandbox cannot reach CloudFront; assemble client-side)*
 - [ ] Burn captions
@@ -155,7 +160,11 @@ Use the karaoke style we identified in Phase 1 — white sans-serif + black stro
 - [ ] Virality_predictor scoring (Shot 6 in flight)
 - [ ] Review gate
 
-## Generated assets (2026-06-06)
+## Generated assets (2026-06-06, original-style v1)
+
+Pre-pivot artifacts kept for reference only. Once the new humor_animations-style character
+v3 keyframes are approved, all six shots will be re-rendered against them and the IDs
+below will be archived.
 
 ### Keyframe images (nano_banana_pro, 9:16, 1k)
 
@@ -163,7 +172,7 @@ Use the karaoke style we identified in Phase 1 — white sans-serif + black stro
 | ---- | ------ | --- |
 | S1 1:47 AM | `b95803f5-dacf-45a2-9e23-40f0643ed1b7` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_125824_b95803f5-dacf-45a2-9e23-40f0643ed1b7.png |
 | S2 Crinkle | `1cccd374-c909-4dcb-a310-de03a1d80457` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_125827_1cccd374-c909-4dcb-a310-de03a1d80457.png |
-| S3 Sam awake | `d21e0e46-6488-42dc-9f07-134d1eb093f1` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_125831_d21e0e46-6488-42dc-9f07-134d1eb093f1.png |
+| S3 husband awake | `d21e0e46-6488-42dc-9f07-134d1eb093f1` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_125831_d21e0e46-6488-42dc-9f07-134d1eb093f1.png |
 | S4 Ninja mode | `716b3f2c-e04c-4b15-b61b-e4df3839fd08` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_125834_716b3f2c-e04c-4b15-b61b-e4df3839fd08.png |
 | S5 Morning after | `3a831b6d-7f38-46df-993d-e6ab3774f0fb` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_125839_3a831b6d-7f38-46df-993d-e6ab3774f0fb.png |
 | S6 Punchline | `5ac55492-85d1-4cc7-9437-a7b58dec76f9` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_125843_5ac55492-85d1-4cc7-9437-a7b58dec76f9.png |
@@ -183,15 +192,3 @@ Use the karaoke style we identified in Phase 1 — white sans-serif + black stro
 - 6 keyframes (nano_banana_pro with refs): 12 credits
 - 6 video shots (Seedance 2.0, 5s, 720p, std): 135 credits
 - **Total: 147 credits / 30s reel** (preflight forecast met exactly)
-- Remaining workspace balance after this pilot: 591.68 credits → ~4 more pilots before top-up
-
-### Client-side assembly (until pipeline lands)
-Sandbox blocked from CloudFront video downloads (`host_not_allowed`), so do this locally:
-```bash
-mkdir loud-snack && cd loud-snack
-for u in <paste 6 URLs>; do curl -O "$u"; done
-# rename in shot order, then:
-printf "file '%s'\n" s1.mp4 s2.mp4 s3.mp4 s4.mp4 s5.mp4 s6.mp4 > list.txt
-ffmpeg -f concat -safe 0 -i list.txt -c copy loud-snack-30s.mp4
-```
-Then load `loud-snack-30s.mp4` into CapCut for caption burn-in + SFX.
