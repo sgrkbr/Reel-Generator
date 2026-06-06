@@ -14,6 +14,25 @@ created: 2026-06-06
 ## Premise
 深夜 1:47、Mei が静かにしているつもりでチップス袋を開ける。Sam は寝室で全部聞いている。翌朝 Mei は "I was being quiet…" と平然と主張する。
 
+## Title card (0-3s, baked into S1)
+- Layout: 9:16, upper third, BELOW TikTok top safe zone (~180px from top)
+- Line 1: `THE LOUD SNACK` (bold sans, white + 10px black stroke)
+- Line 2 (small caption beneath): `1:47 AM`
+- Series watermark `Couple Things` 左肩、薄め
+
+## Bubble text spec (post-production overlay)
+
+| Shot | Type | Text | Attach to |
+| ---- | ---- | ---- | --------- |
+| S1 | (title only) | — | — |
+| S2 | Thought 🫧 | `okay… slow…… slowly……` | Mei head |
+| S3 | Thought 🫧 | `she thinks I can't hear that.` | Sam head |
+| S4 | Thought 🫧 | `I am being SO quiet.` | Mei head |
+| S5 | Caption (lower-third) | `the next morning` | — |
+| S6 | Speech 💬 | `"I was being quiet…"` | Mei mouth |
+
+吹き出し/テロップは編集アプリ (CapCut) で PNG/SVG オーバーレイ。テキストだけ A/B 差し替え可、再生成不要。
+
 ## Shots (6 × 5s = 30s)
 
 ### Shot 1 (0-5s) — "1:47 AM"
