@@ -15,6 +15,7 @@ Higgsfield × TikTok 起点で、**アニメ化スタンドアップコメディ
 | [`docs/05-publishing-workflow.md`](docs/05-publishing-workflow.md) | 3チャネル投稿運用と予約ツール選定 |
 | [`docs/06-kpi-and-iteration.md`](docs/06-kpi-and-iteration.md) | KPI と改善サイクル |
 | [`docs/07-automation-architecture.md`](docs/07-automation-architecture.md) | 生成 + 投稿の自動化アーキテクチャ |
+| [`docs/08-setup.md`](docs/08-setup.md) | Postiz / Cloudflare R2 / GitHub Secrets セットアップ手順 |
 
 ## ステータス
 
