@@ -181,7 +181,13 @@ GitHub Repo Secrets:
   - キャラ参照画像 (job `c5fcfc04…`): https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_092013_c5fcfc04-bd00-4093-840b-cb44270069d7.png
   - スタンダップ動画 5s (job `188efc27…`): https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_092128_188efc27-a8c1-47ce-a6cd-dec6d9cdef0a.mp4
 
-  プリフライト (`get_cost: true`) が課金実測と完全一致 → CI で予算超過を事前検知可能
+  プリフライト (`get_cost: true`) が課金実測と完全一致 (Seedance 2.0 video) → CI で予算超過を事前検知可能
+
+  ⚠️ **2回目試作 (Mei / Sam / ペア 3 枚を nano_banana_pro で生成)** で乖離発見:
+  - Preflight: 2 credits/枚 → 合計 6 credits 想定
+  - 実測: 28.5 credits 消費 (~9.5/枚) → **preflight が実コストを ~5x underreport**
+  - 結果モデル名は `nano_banana_2` に server-side マップ。preflight の cost は最低見積りの可能性
+  - **CI 予算ゲートでは `credits_exact` を直接使わず、モデル別に係数 (e.g. nano: ×5, seedance: ×1.0) を補正してから判定する**こと
 
 - ✅ **ユーザー Higgsfield ワークスペースの既存資産発見** (2026-06-06):
 
