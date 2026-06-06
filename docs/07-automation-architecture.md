@@ -168,6 +168,20 @@ GitHub Repo Secrets:
   - **Seedance 2.0** (Bytedance): 参照画像でキャラ一貫性、9:16、4-15s、resolution 480/720/1080p、`genre: comedy` パラメータあり — **メインキャラショット用**
   - **Wan 2.7**: 音声同期 + キャラ一貫、2-15s — **トーキング/口パクショット用**
   - **Higgsfield Preset**: バイラルテンプレ即時適用 — **トランジション/効果カット用**
+- ✅ **試作 1 ショット実測完了** (2026-06-06):
+
+  | 項目 | 実測値 |
+  | ---- | ------ |
+  | soul_2 画像 (2K, 9:16) | **0.12 credits** / 体感 ~30s |
+  | Seedance 2.0 動画 (5s, 720p, std, audio on) | **22.5 credits** / 体感 ~5min |
+  | 30s ネタ (5s × 6 ショット) 概算 | **~135 credits / 約 30-40 分** |
+  | 残 791 credits で作れる本数 | **約 5-6 本** |
+
+  生成物:
+  - キャラ参照画像 (job `c5fcfc04…`): https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_092013_c5fcfc04-bd00-4093-840b-cb44270069d7.png
+  - スタンダップ動画 5s (job `188efc27…`): https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260606_092128_188efc27-a8c1-47ce-a6cd-dec6d9cdef0a.mp4
+
+  プリフライト (`get_cost: true`) が課金実測と完全一致 → CI で予算超過を事前検知可能
 
 **残り**:
 1. **Postiz 検証**: Railway に Postiz をデプロイ → TikTok/IG/YT OAuth 接続 → 試験投稿 1 本通すまで
