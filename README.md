@@ -14,6 +14,7 @@ Higgsfield × TikTok 起点で、**アニメ化スタンドアップコメディ
 | [`docs/04-production-pipeline.md`](docs/04-production-pipeline.md) | Higgsfield 制作フロー (絵コンテ→画像→動画→編集→字幕) |
 | [`docs/05-publishing-workflow.md`](docs/05-publishing-workflow.md) | 3チャネル投稿運用と予約ツール選定 |
 | [`docs/06-kpi-and-iteration.md`](docs/06-kpi-and-iteration.md) | KPI と改善サイクル |
+| [`docs/07-automation-architecture.md`](docs/07-automation-architecture.md) | 生成 + 投稿の自動化アーキテクチャ |
 
 ## ステータス
 
@@ -23,6 +24,7 @@ Higgsfield × TikTok 起点で、**アニメ化スタンドアップコメディ
 - [ ] Phase 4: 制作パイプライン
 - [ ] Phase 5: 投稿ワークフロー
 - [ ] Phase 6: KPI と改善
+- [ ] Phase 7: 自動化アーキテクチャ実装 (生成 + 投稿)
 
 ## スコープ
 
@@ -30,4 +32,5 @@ Higgsfield × TikTok 起点で、**アニメ化スタンドアップコメディ
 - 形式: アニメ化スタンドアップ
 - 言語/市場: 英語 (グローバル)
 - 主戦場: TikTok → IG Reels / YouTube Shorts へ横展開
-- 投稿運用: サードパーティ予約投稿ツール
+- 投稿運用: 生成 + 投稿を GitHub Actions で自動化 (Buffer 経由、フォールバックは Postiz OSS)
+- 主言語: Python (コア) + TypeScript (薄いスクリプト)
