@@ -189,6 +189,11 @@ GitHub Repo Secrets:
   - 結果モデル名は `nano_banana_2` に server-side マップ。preflight の cost は最低見積りの可能性
   - **CI 予算ゲートでは `credits_exact` を直接使わず、モデル別に係数 (e.g. nano: ×5, seedance: ×1.0) を補正してから判定する**こと
 
+  ✅ **3回目試作で原因特定** (Mei/Sam 参照付きペア v2):
+  - Preflight: 2 credits、実測: 2 credits (740.68 → 738.68) で **完全一致**
+  - 差分は **reference 画像の有無** だった可能性が高い。`medias[]` で参照を渡すと nano は通常コストで動き、text-only は追加処理 (auto-enhance / multi-sample) が走る挙動
+  - **暫定ガイダンス**: nano_banana_pro は基本的に reference 画像と組み合わせて使う。text-only 一発生成は coefficient ×5 で見積る
+
 - ✅ **ユーザー Higgsfield ワークスペースの既存資産発見** (2026-06-06):
 
   | 種別 | ID | 説明 |
