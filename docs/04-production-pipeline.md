@@ -5,8 +5,9 @@ Higgsfield MCP を中心とした半自動制作フロー。1本あたり想定�
 ## ステップ
 
 ### 1. スクリプト
-- ネタを 60〜90秒の長尺で書く → ショート用に 25〜45秒へ圧縮
+- ネタを 60〜90秒の長尺で書く → **30-60s 目安** (humor_animations 系の主流尺) に圧縮
 - 最初の3秒に必ずフックを置く (画 / 音 / テキスト のどれか)
+- カップルスキットは「片方の異常行動 → 相手のリアクション → モノローグオチ」のテンプレに当てる
 
 ### 2. 絵コンテ (Markdown で)
 ```
@@ -16,9 +17,12 @@ Higgsfield MCP を中心とした半自動制作フロー。1本あたり想定�
 ```
 
 ### 3. キャラ/背景の固定ビジュアル
-- `generate_image` でキャラ正面/横/感情バリエーションを生成
-- `show_characters` / `show_reference_elements` で一貫性アセットとして登録
-- 背景は3〜5パターン作って使い回す
+- **2D カートゥーンスタイル**で生成 (humor_animations 風: フラットカラー、軽い影、太め輪郭、誇張ややあり)
+- 主役ペア **Mei & Sam** を Soul Cinematic で学習 (5-20 枚) → soul_id を取得
+- `generate_image` で各キャラの正面/横/感情バリエーションを 2D 調プロンプトで生成
+- `show_reference_elements` でキャラ単体 + ペアショットを Element 化 (Seedance/Kling 系で `<<<id>>>` 埋込候補だが、現状 Seedance では `start_image` 経由が確実)
+- 共通背景 (リビング / 寝室 / キッチン / 玄関 / オフィス) を Nano Banana Pro で 3-5 パターン作成、Reference Element 登録
+- Ken Tanaka は補助キャラとして 2D ステ化版を別途生成
 
 ### 4. ショット生成
 - 各ショットを `generate_video` で 9:16 出力
