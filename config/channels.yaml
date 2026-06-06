@@ -1,0 +1,45 @@
+# Per-platform formatting and posting rules.
+# Read by pipelines/publish/schedule.ts when assembling the Postiz payload.
+
+tiktok:
+  enabled: true
+  offset_hours: 0          # post first
+  max_caption_chars: 150
+  hashtags:
+    - couplethings
+    - couplehumor
+    - relatablecouples
+    - animation
+    - shorts
+    - couplesoftiktok
+  burned_in_captions: true
+
+instagram:
+  enabled: true
+  offset_hours: 24         # post 1 day after tiktok
+  account_type: business   # required for Reels publish via API
+  max_caption_chars: 2200
+  hashtags:
+    - couplethings
+    - couplehumor
+    - relatablecouples
+    - animation
+    - reels
+    - couplegoals
+    - relationshiphumor
+    - couples
+    - love
+    - foryou
+  burned_in_captions: true
+
+youtube:
+  enabled: true
+  offset_hours: 48         # post 2 days after tiktok
+  title_suffix: " #Shorts"
+  max_description_chars: 5000
+  hashtags:
+    - couplethings
+    - couplehumor
+    - animation
+    - shorts
+  burned_in_captions: true

@@ -1,8 +1,8 @@
 # Reel-Generator
 
-Higgsfield × TikTok 起点で、**アニメ化スタンドアップコメディー** (Jimmy O Yang 風 / 英語・グローバル) のショート動画を立ち上げ、Instagram Reels と YouTube Shorts へ横展開するための **リサーチ + 運用戦略ドキュメント** リポジトリ。
+Higgsfield × TikTok 起点で **2D アニメのカップルあるあるショート** (Mei & Sam / 30-60s / 英語・グローバル) を量産し、Instagram Reels と YouTube Shorts へ横展開するための **戦略ドキュメント + 自動化パイプライン** リポジトリ。
 
-コードは持たない。Higgsfield での生成と投稿予約 (サードパーティツール) は手動運用が前提。
+参考: TikTok [`@humor_animations`](https://www.tiktok.com/@humor_animations) (4.6M フォロワー)。
 
 ## ドキュメント構成
 
@@ -17,21 +17,35 @@ Higgsfield × TikTok 起点で、**アニメ化スタンドアップコメディ
 | [`docs/07-automation-architecture.md`](docs/07-automation-architecture.md) | 生成 + 投稿の自動化アーキテクチャ |
 | [`docs/08-setup.md`](docs/08-setup.md) | Postiz / Cloudflare R2 / GitHub Secrets セットアップ手順 |
 
+## コード構成
+
+| パス | 役割 |
+| --- | --- |
+| `pipelines/generate/` | Python: Higgsfield → ffmpeg → R2 のオーケストレーション |
+| `pipelines/publish/` | TypeScript: Postiz API で 3 チャネルに予約投稿 |
+| `config/` | キャラ / シリーズ / チャネルの YAML 設定 |
+| `content/ideas/` | ネタ Markdown (frontmatter + shots) |
+| `content/ready/` | 生成完了の reel メタデータ (Postiz 投入待ち) |
+| `content/archive/` | 投稿済み |
+| `scripts/cli.py` | ローカル用 CLI (`reel generate <slug>` / `reel preflight <slug>`) |
+| `.github/workflows/` | `generate.yml` (push → 生成) / `publish.yml` (cron → 予約) |
+
 ## ステータス
 
-- [x] Phase 1: ベンチマークリサーチ
-- [ ] Phase 2: パターン抽出
-- [ ] Phase 3: コンテンツ戦略
-- [ ] Phase 4: 制作パイプライン
-- [ ] Phase 5: 投稿ワークフロー
-- [ ] Phase 6: KPI と改善
-- [ ] Phase 7: 自動化アーキテクチャ実装 (生成 + 投稿)
+- [x] Phase 1-4: 戦略・規約ドキュメント (`docs/01`〜`docs/04`)
+- [x] Phase 5: 投稿ワークフロー (`docs/05`)
+- [ ] Phase 6: KPI と改善 (`docs/06`)
+- [x] Phase 7-α: コスト計測 + Postiz 採用 + パイロット試作 (`docs/07`, `docs/08`)
+- [x] Phase 7-β: リポスケルトン (`pipelines/`, `config/`, `.github/workflows/`)
+- [ ] Phase 7-γ: シークレット投入 + Postiz/R2 デプロイ → 実 CI 稼働 (`docs/08`)
+- [ ] Phase 7-δ: KPI ダッシュボード統合 / ネタ自動提案
 
 ## スコープ
 
-- ジャンル: スタンドアップコメディー (Jimmy O Yang 的視点)
-- 形式: アニメ化スタンドアップ
+- ジャンル: 2D アニメ・カップルあるある (ベンチマーク: @humor_animations)
+- 主役: **Mei & Sam** / 補助キャラ: Ken Tanaka
+- 尺: 30-60s / アスペクト比: 9:16
 - 言語/市場: 英語 (グローバル)
 - 主戦場: TikTok → IG Reels / YouTube Shorts へ横展開
-- 投稿運用: 生成 + 投稿を GitHub Actions で自動化 (Buffer 経由、フォールバックは Postiz OSS)
+- 投稿運用: 生成 + 投稿を GitHub Actions + Postiz セルフホスト (Railway) で自動化
 - 主言語: Python (コア) + TypeScript (薄いスクリプト)

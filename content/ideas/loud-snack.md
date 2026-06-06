@@ -3,10 +3,84 @@ slug: loud-snack
 series: couple-things
 title: "The Loud Snack"
 length_sec: 30
-hook: "Mei midnight chip raid; Sam hears everything"
+hook: "POV: she swears she was being quiet"
 characters: [mei, sam]
 status: pilot
 created: 2026-06-06
+shots:
+  - id: s1
+    characters: [mei]
+    props: [chip_bag_v1]
+    keyframe_prompt: |
+      Shot 1, 'The Loud Snack' opening. EXACT SAME modern adult 2D animation
+      style as the reference characters. Dark cozy living room at night,
+      dim cool moonlight through a window, navy couch in the background.
+      MEI mid-step tiptoeing toward an offscreen kitchen, holding the
+      reference chip bag low behind her back, guilty sneaky expression.
+      Composition leaves top third clear for title overlay. 9:16.
+    video_prompt: |
+      MEI tiptoeing in slow motion through a dark living room at night
+      toward the offscreen kitchen, holding the chip bag low behind her
+      back. She glances over her shoulder with a guilty sneaky expression
+      and takes another careful step. Quiet, suspenseful, comedic vibe.
+  - id: s2
+    characters: [mei]
+    props: [chip_bag_v1]
+    keyframe_prompt: |
+      Close-up on MEI carefully pulling open the reference metallic chip
+      bag with both hands. Bag crinkled and slightly puffed. Wide eyes,
+      mouth tight in a panicked wince. Soft moonlight key from screen left.
+    video_prompt: |
+      Close-up on MEI carefully pulling open the chip bag. The bag CRINKLES
+      loudly. She freezes, eyes wider, mouth tightening into a panicked wince.
+  - id: s3
+    characters: [sam]
+    props: []
+    keyframe_prompt: |
+      Overhead shot of SAM lying on his back in a dark bedroom at night,
+      head on a pillow, eyes wide open staring at the ceiling, expressionless
+      deadpan. White sheets, dim moonlight. High overhead camera.
+    video_prompt: |
+      Overhead shot of SAM lying on his back, eyes wide open staring at the
+      ceiling, completely deadpan. He very slowly blinks once. No other
+      movement. Tense quiet comedic timing.
+  - id: s4
+    characters: [mei]
+    props: [chip_bag_v1]
+    keyframe_prompt: |
+      MEI sitting cross-legged on a navy couch in the dim living room at
+      night. Delicately placing a single chip into her mouth with intense
+      concentration, the reference chip bag balanced on her lap. Soft TV
+      blue glow on her face.
+    video_prompt: |
+      MEI on the couch slowly and ridiculously delicately placing a single
+      chip into her mouth with intense concentration. She chews silently,
+      then picks up the next chip. Slow comedic timing.
+  - id: s5
+    characters: [mei, sam]
+    props: [chip_bag_v1]
+    keyframe_prompt: |
+      Bright sunny morning kitchen. MEI at counter pouring coffee from a
+      French press, humming. SAM walking in from the right, deadpan,
+      holding the empty crumpled reference chip bag pinched between two
+      fingers like evidence.
+    video_prompt: |
+      Bright sunny morning kitchen. MEI pouring coffee, totally relaxed.
+      SAM walks in from the right, deadpan, holding the empty crumpled
+      chip bag pinched between two fingers. He stops next to her.
+  - id: s6
+    characters: [mei, sam]
+    props: [chip_bag_v1]
+    keyframe_prompt: |
+      Two-shot, morning kitchen. MEI on LEFT looking up with an exaggerated
+      innocent expression, slight shrug, holding a coffee mug. SAM on
+      RIGHT staring directly at her, deadpan unconvinced, holding the
+      empty crumpled reference chip bag. Eye-level medium close-up.
+    video_prompt: |
+      Two-shot. MEI looks up at SAM, exaggeratedly innocent shrug, holding
+      mug. SAM stares back, deadpan unconvinced, holding the empty chip
+      bag. After a beat MEI's eyebrows raise even higher in fake innocence
+      and she gives one slow blink.
 ---
 
 # The Loud Snack

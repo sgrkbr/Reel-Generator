@@ -1,0 +1,20 @@
+couple-things:
+  display_name: "Couple Things"
+  caption_template: "{hook}\n\n#couplethings #couplehumor #relatablecouples #animation #shorts"
+  default_length_sec: 35
+  default_shot_count: 6
+  characters: [mei, sam]
+
+inner-monologue:
+  display_name: "Sam's Inner Voice"
+  caption_template: "{hook}\n\n#innermonologue #couplehumor #animation #shorts"
+  default_length_sec: 25
+  default_shot_count: 4
+  characters: [sam]
+
+couple-vs-tech:
+  display_name: "Couple vs. Tech"
+  caption_template: "{hook}\n\n#wfh #couplehumor #techhumor #animation #shorts"
+  default_length_sec: 40
+  default_shot_count: 6
+  characters: [mei, sam, ken_tanaka]

@@ -1,0 +1,67 @@
+name: generate
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Idea slug under content/ideas/<slug>.md"
+        required: true
+  push:
+    branches: [main]
+    paths:
+      - "content/ideas/**.md"
+
+concurrency:
+  group: generate-${{ inputs.slug || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      HIGGSFIELD_API_KEY: ${{ secrets.HIGGSFIELD_API_KEY }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      R2_PUBLIC_BASE_URL: ${{ secrets.R2_PUBLIC_BASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -e .
+
+      - name: Determine slug
+        id: slug
+        run: |
+          if [ -n "${{ inputs.slug }}" ]; then
+            echo "slug=${{ inputs.slug }}" >> "$GITHUB_OUTPUT"
+          else
+            # On push, find the newest ideas file in the diff.
+            slug=$(git diff --name-only HEAD~1 HEAD -- 'content/ideas/*.md' \
+              | head -n1 | sed 's|content/ideas/||;s|\.md$||')
+            echo "slug=${slug}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Preflight cost
+        run: python scripts/cli.py preflight "${{ steps.slug.outputs.slug }}"
+
+      - name: Generate reel
+        run: python scripts/cli.py generate "${{ steps.slug.outputs.slug }}"
+
+      - name: Open review PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: ready/${{ steps.slug.outputs.slug }}
+          title: "Reel ready: ${{ steps.slug.outputs.slug }}"
+          body: |
+            Auto-generated reel for `${{ steps.slug.outputs.slug }}`.
+            Review the R2 URL in `content/ready/${{ steps.slug.outputs.slug }}.json`
+            and merge to queue the post.
+          add-paths: |
+            content/ready/*.json

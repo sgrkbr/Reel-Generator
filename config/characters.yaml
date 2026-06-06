@@ -1,0 +1,29 @@
+# Canonical reference IDs for series characters and core props.
+# Pipelines look up these IDs and inject them as medias[] when generating
+# keyframes so identity holds across shots.
+
+mei:
+  display_name: Mei
+  soul_id: null
+  reference_element_id: null
+  pinned_image_jobs:
+    - 92459174-6aa0-4b79-94e5-8bc43d4734a9   # solo portrait v1
+
+sam:
+  display_name: Sam
+  soul_id: null
+  reference_element_id: null
+  pinned_image_jobs:
+    - 31908049-77f3-4aa7-b411-6bee3f2ce370   # solo portrait v1
+
+ken_tanaka:
+  display_name: Ken Tanaka
+  soul_id: 94133d2e-fcf9-445b-9527-3212f0c9beff
+  reference_element_id: ab984578-4915-4cc5-9129-a4781b16d564
+  pinned_image_jobs:
+    - 78a1e5ff-af8f-4271-a311-bf8826445c28
+
+props:
+  chip_bag_v1:
+    pinned_image_jobs:
+      - f468e043-51bf-4716-bbc9-bd8f2b584e29
