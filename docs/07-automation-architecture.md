@@ -72,24 +72,35 @@ GitHub に動画は置かない (リポを軽く保つ + LFS 課金回避):
 - **完成動画 (`final/`)**: **Cloudflare R2** か **Backblaze B2** (どちらも egress 安い)
 - メタデータと URL だけ git に commit
 
-## 投稿経路: Buffer 第一 / Postiz フォールバック
+## 投稿経路: Postiz セルフホスト (本命) / 公式 API 直叩き (フォールバック)
 
-### Buffer 経由 (Plan A)
-- ユーザーが Buffer 無料アカウントを保有
-- **要検証**: 無料プランで TikTok / IG Reels / YT Shorts の動画スケジュール API が叩けるか。Buffer の旧 Publish API は 2023 年 deprecated、新 API は限定アクセス。**Phase 7-α で実機確認**
-- 通れば: TypeScript の Buffer SDK で `POST /1/updates/create` 相当を叩き、`scheduled_at` 指定
-- 通らなければ → Plan B へ
+### Phase 7-α 検証結果 (2026-06)
 
-### Postiz (OSS) 自前ホスト (Plan B)
-- [github.com/gitroomhq/postiz-app](https://github.com/gitroomhq/postiz-app) を Fly.io / Railway 無料枠でホスト
-- TikTok / IG / YT の OAuth 連携を自前で行い、API キーは Postiz が管理
-- 自前 SDK 経由で予約投稿
-- コスト: 無料枠内で収まる前提 (Fly.io 無料枠 / Railway $5 クレジット)
+| 候補 | 結論 | 根拠 |
+| ---- | ---- | ---- |
+| **Buffer 無料 API** | **NG** | Buffer API は read-only ベータ、**TikTok 動画アップロードは API 非対応**、Web アプリの手動投稿のみ ([Buffer Help](https://support.buffer.com/article/595-features-available-on-each-buffer-plan)) |
+| **Postiz (OSS)** | **採用** | 公式 REST API (`POST /public/v1/posts`)、TikTok/IG Reels/YT Shorts 30+ 対応、Railway デプロイテンプレあり、**Postiz MCP サーバー**が公開済 ([postiz.com](https://postiz.com/), [Railway template](https://railway.com/deploy/postiz)) |
+| **公式 API 直叩き** | 保留 | TikTok Content Posting API は審査 1〜2 週間 + UI 要件 (ユーザー名/アバター/プライバシー選択を投稿前に表示)、未審査は private 制限 ([TikTok docs](https://developers.tiktok.com/doc/content-posting-api-reference-direct-post))。IG Graph API は Business + FB Page 連携必須 |
 
-### Manual fallback (Plan C — 常に用意)
-- 完成動画 + キャプション + ハッシュタグ JSON を Google Drive / Notion に出力
-- 手動で各アプリの予約機能に流す
-- 自動化が失敗してもコンテンツ生産は止めない
+### Plan A — Postiz セルフホスト (採用)
+
+- **デプロイ先**: Railway ($5 クレジット/月で十分、出先からスマホでも管理画面アクセス可)
+- **OAuth 連携**: TikTok / IG (Business) / YouTube を Postiz の管理画面から接続。**Postiz が TikTok の UX 要件を満たした UI を提供しているのが大きい**(自前で TikTok 審査を通す必要がない)
+- **自動投稿経路**:
+  1. GitHub Actions が `final/9x16/*.mp4` を R2 にアップロード後、その URL を取得
+  2. Postiz REST API に `POST /public/v1/posts` (動画 URL + プラットフォーム配列 + scheduled_at)
+  3. Postiz が各 SNS の予約キューに投入
+- **Bonus: Postiz MCP**: ローカル Claude Code から自然言語で「これ明日 18 時に TikTok に投げて」と指示可能。スマホ運用と相性 ◎
+
+### Plan B — 公式 API 直叩き (Postiz が落ちたら)
+
+- TikTok: 数週間かけて Content Posting API 審査を通す
+- IG Reels: Business アカウント化 + FB Page 連携、Graph API v21+ で 3-step publish (POST media → poll status → media_publish)、9:16 / 5-90s / H.264 制約
+- YouTube: Data API v3 は比較的素直
+
+### Plan C — 手動フォールバック (常時保険)
+- 完成動画 + キャプション + ハッシュタグ JSON を R2 + Notion にアウトプット
+- 各アプリの予約機能に手動で流す
 
 ## 標準ワークフロー (1ネタが流れる経路)
 
@@ -119,8 +130,8 @@ GitHub に動画は置かない (リポを軽く保つ + LFS 課金回避):
 
 GitHub Repo Secrets:
 - `HIGGSFIELD_API_KEY`
-- `BUFFER_ACCESS_TOKEN` (Plan A)
-- `POSTIZ_BASE_URL` / `POSTIZ_TOKEN` (Plan B)
+- `POSTIZ_BASE_URL` / `POSTIZ_API_KEY` (Plan A)
+- TikTok / IG / YT 公式 API トークン (Plan B、必要時のみ)
 - `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` / `R2_BUCKET`
 - `OPENAI_API_KEY` (whisper / 補助)
 - `SLACK_WEBHOOK_URL` (任意、通知用)
@@ -134,7 +145,7 @@ GitHub Repo Secrets:
 | GitHub Actions | $0 (無料枠 2000分) |
 | Higgsfield | 既存契約に依存 (本リポ外) |
 | R2 ストレージ | $0〜$1 (10GB 以下) |
-| Buffer 無料 / Postiz セルフホスト | $0〜$5 |
+| Postiz セルフホスト (Railway) | $0〜$5 |
 | OpenAI (whisper, 字幕タイミング) | $1〜$3 |
 | **合計** | **$5 前後/月** (Higgsfield 別) |
 
@@ -148,11 +159,21 @@ GitHub Repo Secrets:
 
 ## マイルストーン
 
-### Phase 7-α (検証 / 1〜2 週間)
-1. Buffer 無料プランの API アクセスを実機確認 → Plan A or B 確定
-2. Higgsfield API のレートリミットとコストを 1ネタ試作で測定
-3. R2 アカウント作成、bucket 作成、IAM 設定
-4. リポジトリのスケルトンと `scripts/cli.py` を作って、**ローカルで 1ネタを生成し、ローカルファイルで完成**まで通す
+### Phase 7-α (検証 / 完了分・残り)
+
+**完了**:
+- ✅ Buffer 無料 API → NG (read-only、TikTok 動画非対応) と判明、Postiz に切替決定
+- ✅ Higgsfield アカウント: Plus プラン、**残 791.8 credits**
+- ✅ 推奨モデル選定:
+  - **Seedance 2.0** (Bytedance): 参照画像でキャラ一貫性、9:16、4-15s、resolution 480/720/1080p、`genre: comedy` パラメータあり — **メインキャラショット用**
+  - **Wan 2.7**: 音声同期 + キャラ一貫、2-15s — **トーキング/口パクショット用**
+  - **Higgsfield Preset**: バイラルテンプレ即時適用 — **トランジション/効果カット用**
+
+**残り**:
+1. **Postiz 検証**: Railway に Postiz をデプロイ → TikTok/IG/YT OAuth 接続 → 試験投稿 1 本通すまで
+2. **Higgsfield 試作**: Seedance 2.0 で 8 秒 × 3 ショット試作 → 消費クレジット計測 → 1 ネタあたりコスト確定
+3. **R2 セットアップ**: アカウント作成 → bucket + IAM
+4. **スケルトン**: `scripts/cli.py` でローカル 1 ネタ生成完走
 
 ### Phase 7-β (CI 化 / 1 週間)
 1. `generate.yml` を GitHub Actions で動かす
