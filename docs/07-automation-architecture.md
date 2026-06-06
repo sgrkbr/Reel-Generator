@@ -183,6 +183,20 @@ GitHub Repo Secrets:
 
   プリフライト (`get_cost: true`) が課金実測と完全一致 → CI で予算超過を事前検知可能
 
+- ✅ **ユーザー Higgsfield ワークスペースの既存資産発見** (2026-06-06):
+
+  | 種別 | ID | 説明 |
+  | ---- | -- | ---- |
+  | Soul Character (trained) | `94133d2e-fcf9-445b-9527-3212f0c9beff` | "Ken Tanaka" — `text2image_soul_v2` 専用 |
+  | Reference Element (IP verified) | `ab984578-4915-4cc5-9129-a4781b16d564` | "Ken-Tanaka" — Seedance/Kling/Nano 等で `<<<id>>>` 埋込 |
+  | 既存ステージ画像 (soul_v2) | `78a1e5ff-af8f-4271-a311-bf8826445c28` | 青オックス + メガネ + 黒チノのキーフレーム |
+  | 既存 Kling 3.0 動画 (15s, 9:16) | `c74806d7-4a93-4eaf-bddd-752ca248e0bb` | プロダクションの先行サンプル |
+
+  → **キャラ "Ken Tanaka" を主役に確定**。シリーズ展開に必要な参照アセット群は既に揃っている
+
+- ⚠️ **環境制約発見**: このサンドボックスから Higgsfield アップロード用 CloudFront ホスト (`d276s3zg8h21b2.cloudfront.net`) への直接 PUT は "Host not in allowlist" でブロック。**GitHub Actions 側でも要確認** (allowlist がなければ問題ないはず、ローカル用クライアントには影響なし)
+- ⚠️ Reference Element `<<<id>>>` 埋込は Seedance 2.0 で `Error starting generation` を返す挙動を確認。**現状は start_image 経由が確実**。Element は Nano Banana / Cinema Studio 系で使う方針に切替
+
 **残り**:
 1. **Postiz 検証**: Railway に Postiz をデプロイ → TikTok/IG/YT OAuth 接続 → 試験投稿 1 本通すまで
 2. **Higgsfield 試作**: Seedance 2.0 で 8 秒 × 3 ショット試作 → 消費クレジット計測 → 1 ネタあたりコスト確定
