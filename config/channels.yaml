@@ -7,6 +7,7 @@ handles:
   tiktok: couplethings_daily
   instagram: couplethings_daily
   youtube: couplethings_daily
+  linktree: https://linktr.ee/couplethings_daily
 
 tiktok:
   enabled: true

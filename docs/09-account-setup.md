@@ -248,5 +248,5 @@ New short every couple of days.
 - Font: Default sans (Inter)
 - Free プランで充分。Pro なら Headline links 機能で TikTok を最上部固定可
 
-### 完成 URL を 3 チャネルの bio link に貼る
-`https://linktr.ee/couplethings_daily` (取得後コピペ)
+### 完成 URL (3 チャネルの bio link 共通)
+**`https://linktr.ee/couplethings_daily`** ✅
