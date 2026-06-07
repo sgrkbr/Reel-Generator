@@ -197,9 +197,10 @@ Business: couplethings.contact@gmail.com
 
 | アセット | Job ID | URL |
 | -------- | ------ | --- |
-| Icon (1:1) | `904b5e51-89ab-4174-9014-a7489c8a7889` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_062748_904b5e51-89ab-4174-9014-a7489c8a7889.png |
-| YouTube Banner (16:9) | `5d9daac7-f5b2-46db-9284-a01571d3fb9c` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_062754_5d9daac7-f5b2-46db-9284-a01571d3fb9c.png |
-| YouTube Watermark (1:1) | `8a0352e1-9d6e-400d-97b3-9a93bd05bc86` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_062803_8a0352e1-9d6e-400d-97b3-9a93bd05bc86.png |
+| Icon (1:1) v2 | `7faabe94-d186-4889-9c25-f89fac9b7b26` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_074518_7faabe94-d186-4889-9c25-f89fac9b7b26.png |
+| YouTube Banner (16:9) v2 | `c75532f3-c65b-4507-a4c2-0f5f2dae7146` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_074524_c75532f3-c65b-4507-a4c2-0f5f2dae7146.png |
+| YouTube Watermark (1:1) v3 | `4ab60878-6a44-43df-9768-fc2b5d57d320` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_074718_4ab60878-6a44-43df-9768-fc2b5d57d320.png |
+| _v1 (archived)_ | _904b5e51 / 5d9daac7 / 8a0352e1_ | (replaced by v2 above) |
 
 > URL は完成し次第このファイル末尾に追記。
 > ダウンロード後リサイズが必要なら CapCut / Photoshop / Squoosh などで:
