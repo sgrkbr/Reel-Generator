@@ -1,22 +1,35 @@
-# Canonical reference IDs for series characters and core props.
-# Pipelines look up these slugs and inject the first pinned_image_jobs entry
-# into medias[] when generating keyframes so identity holds across shots.
+# Canonical reference IDs for series characters, core props, and the global
+# style references that every keyframe generation must inject so the
+# look stays locked across shots.
+
+# Three Higgsfield media_input IDs that capture the brand's illustration
+# style (line treatment, palette, proportions, eye style). Injected as
+# medias[role:image] in every nano_banana_pro keyframe call, in addition
+# to the per-shot character/prop references.
+style_references:
+  - 70e00e40-5744-49fd-8fc5-85be769780a0
+  - daa53a02-e16f-49f8-a621-75e565496390
+  - 0d081ac5-ce27-4dec-aaf3-b1d0d7469779
 
 wife:
   display_name: Wife
   soul_id: null
   reference_element_id: null
   pinned_image_jobs:
-    - 4a1eae60-f947-46c4-b787-c4a68469c0d3   # v4 — humor_animations-style canonical (2026-06-06)
-    - 92459174-6aa0-4b79-94e5-8bc43d4734a9   # v1 (archived, do not use)
+    - 1d323eb1-8659-4468-8fab-d151831a7262   # v7 — canonical (2026-06-07): style-ref mixed, minimal clothing
+    # archived:
+    # - 4a1eae60-f947-46c4-b787-c4a68469c0d3   # v4 (humor_animations adult-proportion text-only)
+    # - 92459174-6aa0-4b79-94e5-8bc43d4734a9   # v1
 
 husband:
   display_name: Husband
   soul_id: null
   reference_element_id: null
   pinned_image_jobs:
-    - 46a676b0-b317-4a68-953b-486fd866098b   # v4 — humor_animations-style canonical (2026-06-06)
-    - 31908049-77f3-4aa7-b411-6bee3f2ce370   # v1 (archived, do not use)
+    - 79190fa8-a429-4fc2-b0b8-8a451899cdbf   # canonical (2026-06-07): style-ref mixed, minimal clothing, bald
+    # archived:
+    # - 46a676b0-b317-4a68-953b-486fd866098b   # v4
+    # - 31908049-77f3-4aa7-b411-6bee3f2ce370   # v1
 
 props:
   chip_bag_v1:

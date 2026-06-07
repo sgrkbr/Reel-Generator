@@ -63,6 +63,12 @@ def _refs_for(entries: list[str], characters_cfg: dict[str, Any]) -> list[str]:
     return refs
 
 
+def _style_refs(characters_cfg: dict[str, Any]) -> list[str]:
+    """Global style references injected into every keyframe generation so the
+    brand look stays locked across shots."""
+    return list(characters_cfg.get("style_references") or [])
+
+
 def run(slug: str) -> Path:
     idea_path = REPO_ROOT / "content" / "ideas" / f"{slug}.md"
     post = frontmatter.load(idea_path)
@@ -72,9 +78,10 @@ def run(slug: str) -> Path:
     characters_cfg = yaml.safe_load(CHARACTERS_YAML.read_text())
     series_cfg = yaml.safe_load(SERIES_YAML.read_text())[series]
 
+    style_refs = _style_refs(characters_cfg)
     results: list[ShotResult] = []
     for shot in shots:
-        refs = _refs_for(
+        refs = style_refs + _refs_for(
             (shot.get("characters") or []) + (shot.get("props") or []),
             characters_cfg,
         )
