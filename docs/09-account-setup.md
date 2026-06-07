@@ -152,7 +152,7 @@ Business: couplethings.contact@gmail.com
 ### Settings → Channel → Advanced settings
 
 - Audience: `No, set this channel as not made for kids` (大人向けユーモア)
-- Keywords (500 chars): `couple humor, couple things, animated couple, animated shorts, relationship humor, couple animation, daily couple, wife husband humor, couple comedy, couple skits, relatable couple, couple reels, couple shorts`
+- Keywords (500 chars): `couple humor, couple things, animated couple, animated shorts, relationship humor, couple animation, daily couple, wife husband humor, couple comedy, couple skits, relatable couple, couple reels, couple shorts, animation, 2d animation, animated series, animated comedy, animated skit, animated story, cartoon, cartoon comedy, animated short film, indie animation, character animation, animation channel, animation studio, motion design, flat animation, daily animation`
 - Country of audience: 制限なし
 
 ### Settings → Upload defaults
@@ -198,9 +198,9 @@ Business: couplethings.contact@gmail.com
 | アセット | Job ID | URL |
 | -------- | ------ | --- |
 | Icon (1:1) v2 | `7faabe94-d186-4889-9c25-f89fac9b7b26` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_074518_7faabe94-d186-4889-9c25-f89fac9b7b26.png |
-| YouTube Banner (16:9) v2 | `c75532f3-c65b-4507-a4c2-0f5f2dae7146` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_074524_c75532f3-c65b-4507-a4c2-0f5f2dae7146.png |
+| YouTube Banner (16:9) v3 | `8ece404d-5d1a-43fb-badc-b6d97520fb58` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_112421_8ece404d-5d1a-43fb-badc-b6d97520fb58.png |
 | YouTube Watermark (1:1) v3 | `4ab60878-6a44-43df-9768-fc2b5d57d320` | https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260607_074718_4ab60878-6a44-43df-9768-fc2b5d57d320.png |
-| _v1 (archived)_ | _904b5e51 / 5d9daac7 / 8a0352e1_ | (replaced by v2 above) |
+| _v1/v2 (archived)_ | _904b5e51 / 5d9daac7 / 8a0352e1 / c75532f3_ | (replaced by v2/v3 above) |
 
 > URL は完成し次第このファイル末尾に追記。
 > ダウンロード後リサイズが必要なら CapCut / Photoshop / Squoosh などで:
