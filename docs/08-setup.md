@@ -158,22 +158,20 @@ GitHub Actions から各 API を叩けるよう、シークレットを登録。
 
 ---
 
-## 4. 動作確認 (Phase 7-α クロージング)
+## 4. 動作確認 (Phase 7-γ クロージング)
 
-3 つを順番に確認:
+### 4.1 verify-setup workflow を手動実行
+リポの **Actions** タブ → **verify-setup** → **Run workflow** → main → 緑になれば全シークレット通電完了。
+このワークフローは Higgsfield 残高を読むだけ・R2 に小さなテキストファイルを 1 回 PUT/GET/DELETE するだけ・Postiz の integrations を一覧するだけ で、課金もなければ実投稿もしない。
 
-### 4.1 R2 にアップできるか
-GitHub Actions の **manual workflow** を使って `sample.mp4` をアップロード → R2 ダッシュボードでファイルが見えれば OK。
+失敗パターンと対処:
+- `missing required env vars` → リポ Secrets を見直し
+- `r2 public read failed` → 1.4 の R2.dev subdomain が allow access になっているか確認
+- `postiz 401` → API キーの scope を確認、ローテーションして登録し直し
 
-### 4.2 Postiz API が叩けるか
-ローカル or Actions から:
-```bash
-curl -X GET "$POSTIZ_BASE_URL/public/v1/integrations" -H "Authorization: Bearer $POSTIZ_API_KEY"
-```
-連携した TikTok / IG / YT が JSON で返ればパス。
-
-### 4.3 1 ネタを通す
-"The Loud Snack" のような既存ネタの完成 mp4 を R2 にアップ → URL を取得 → Postiz API で 3 チャネル予約 → スマホで投稿確認。
+### 4.2 1 ネタを通す
+verify が緑になったら **generate** workflow を手動実行 (slug = `loud-snack` 等) → 自動 PR が立ち、`content/ready/<slug>.json` に R2 公開 URL が記録される → マージで **publish** workflow が次の cron で予約投稿に流す。
+最初は publish の `dry_run` を true で 1 回回し、ログに「投稿予定」が出るのを確認してから false に切り替える。
 
 ---
 
