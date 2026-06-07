@@ -1,6 +1,13 @@
 # Per-platform formatting and posting rules.
 # Read by pipelines/publish/schedule.ts when assembling the Postiz payload.
 
+# Canonical channel handles (set 2026-06-07).
+# Used for cross-promo footers in captions / descriptions.
+handles:
+  tiktok: couplethings_daily
+  instagram: couplethings_daily
+  youtube: couplethings_daily
+
 tiktok:
   enabled: true
   offset_hours: 0          # post first

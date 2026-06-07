@@ -11,8 +11,8 @@
 | ---- | -- |
 | ブランド名 / Display name | `Couple Things` |
 | タグライン (一行) | `Animated everyday couple moments. New short every couple of days.` |
-| ベース ハンドル | `couplethings` (取れなければ下記候補) |
-| ハンドル候補 (優先順) | `couplethings` / `couplethings.daily` / `couple.things` / `couplethings_tv` / `couplethingsdaily` |
+| ハンドル (確定) | **`couplethings_daily`** ✅ |
+| 確定 URL | TikTok: https://www.tiktok.com/@couplethings_daily<br>Instagram: https://www.instagram.com/couplethings_daily/<br>YouTube: https://www.youtube.com/@couplethings_daily |
 | ニッチ | Couple-life observational humor, 2D animated short videos |
 | ターゲット言語 | 英語 (グローバル) |
 | トーン | Self-deprecating + dry + warm |
@@ -118,8 +118,8 @@ Wife + husband. Two characters. One apartment. Zero filters.
 📱 Vertical 9:16 — best on mobile
 💞 Built for couples who recognize themselves in the small stuff
 
-Also on TikTok: @couplethings
-Also on Instagram: @couplethings
+Also on TikTok: @couplethings_daily
+Also on Instagram: @couplethings_daily
 
 Business: couplethings.contact@gmail.com
 ```
@@ -145,9 +145,9 @@ Business: couplethings.contact@gmail.com
 
 | 表示テキスト | URL |
 | ------------ | --- |
-| TikTok | `https://www.tiktok.com/@couplethings` |
-| Instagram | `https://www.instagram.com/couplethings/` |
-| Linktree | (Linktree URL) |
+| TikTok | `https://www.tiktok.com/@couplethings_daily` |
+| Instagram | `https://www.instagram.com/couplethings_daily/` |
+| Linktree | (Linktree URL — 任意) |
 
 ### Settings → Channel → Advanced settings
 
@@ -162,9 +162,9 @@ Business: couplethings.contact@gmail.com
   ```
   {hook line}
 
-  More Couple Things: https://youtube.com/@couplethings
-  TikTok: https://tiktok.com/@couplethings
-  Instagram: https://instagram.com/couplethings
+  More Couple Things: https://youtube.com/@couplethings_daily
+  TikTok: https://tiktok.com/@couplethings_daily
+  Instagram: https://instagram.com/couplethings_daily
 
   #couplethings #couplehumor #animation #shorts
   ```
