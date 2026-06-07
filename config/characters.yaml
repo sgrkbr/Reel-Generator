@@ -7,14 +7,16 @@ wife:
   soul_id: null
   reference_element_id: null
   pinned_image_jobs:
-    - 92459174-6aa0-4b79-94e5-8bc43d4734a9   # v1 — will be replaced by humor-animations-style v3 once approved
+    - 4a1eae60-f947-46c4-b787-c4a68469c0d3   # v4 — humor_animations-style canonical (2026-06-06)
+    - 92459174-6aa0-4b79-94e5-8bc43d4734a9   # v1 (archived, do not use)
 
 husband:
   display_name: Husband
   soul_id: null
   reference_element_id: null
   pinned_image_jobs:
-    - 31908049-77f3-4aa7-b411-6bee3f2ce370   # v1 — will be replaced by humor-animations-style v3 once approved
+    - 46a676b0-b317-4a68-953b-486fd866098b   # v4 — humor_animations-style canonical (2026-06-06)
+    - 31908049-77f3-4aa7-b411-6bee3f2ce370   # v1 (archived, do not use)
 
 props:
   chip_bag_v1:
