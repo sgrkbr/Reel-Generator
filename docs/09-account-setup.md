@@ -214,4 +214,39 @@ Business: couplethings.contact@gmail.com
 - IG Highlights カバー × 5 (Couple Things / Inner Voice / WFH / Travels / Behind)
 - TikTok Profile video (6s ループ)
 - YouTube Channel trailer (15-30s "what this channel is" の自己紹介ショート)
-- Linktree カスタムテーマ (peach-cream パレットで合わせる)
+
+---
+
+## Linktree ハブ (3 チャネル bio link 共通)
+
+### プロフィール上部
+| 項目 | 値 |
+| ---- | -- |
+| Profile image | `icon.png` |
+| Display name | `Couple Things` |
+| @username | `couplethings_daily` |
+| Bio (160 chars max, 132 chars) | 下記コピペ |
+
+**Bio コピペ**:
+```
+Animated everyday couple moments 💞
+Wife + husband. Two characters. One apartment.
+New short every couple of days.
+```
+
+### Links (上から優先順)
+| # | Title | URL | Icon |
+| - | ----- | --- | ---- |
+| 1 | 🎬 Watch on TikTok | https://www.tiktok.com/@couplethings_daily | TikTok |
+| 2 | 📸 Instagram Reels | https://www.instagram.com/couplethings_daily/ | Instagram |
+| 3 | ▶️ YouTube Shorts | https://www.youtube.com/@couplethings_daily | YouTube |
+| 4 (任意) | 💌 Business / Collabs | `mailto:couplethings.contact@gmail.com` | Email |
+
+### Theme
+- Background: 暖色グラデーション (peach → cream) でブランドアセットと統一
+- Button style: Soft shadow / fill = 白 / border 細
+- Font: Default sans (Inter)
+- Free プランで充分。Pro なら Headline links 機能で TikTok を最上部固定可
+
+### 完成 URL を 3 チャネルの bio link に貼る
+`https://linktr.ee/couplethings_daily` (取得後コピペ)
