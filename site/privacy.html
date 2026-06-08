@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Couple Things</title>
+<style>
+  :root { --bg:#0a0a0a; --fg:#f5f5f5; --muted:#8a8a8a; --accent:#ff4d6d; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif; line-height: 1.65; }
+  main { max-width: 720px; margin: 0 auto; padding: 64px 24px 120px; }
+  .back { color: var(--muted); text-decoration: none; font-size: 13px; }
+  .back:hover { color: var(--fg); }
+  h1 { font-size: 36px; font-weight: 800; margin: 24px 0 8px; letter-spacing: -0.02em; }
+  .updated { color: var(--muted); font-size: 13px; margin-bottom: 40px; }
+  h2 { font-size: 18px; font-weight: 700; margin: 40px 0 12px; }
+  p, li { margin-bottom: 12px; color: #d4d4d4; }
+  ul { padding-left: 20px; }
+  a { color: var(--accent); }
+  code { background: #1a1a1a; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">← Couple Things</a>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 8, 2026</p>
+
+  <p>Couple Things ("we", "us", "our") operates the website at <a href="https://sgrkbr.github.io/Reel-Generator/">sgrkbr.github.io/Reel-Generator</a> and an internal publishing tool used solely to manage our own brand-owned short-video accounts. This policy explains what data the tool handles when it interacts with third-party platforms (TikTok, Instagram, YouTube).</p>
+
+  <h2>1. Who this policy applies to</h2>
+  <p>This policy applies to:</p>
+  <ul>
+    <li>The Couple Things brand team members who use the internal publishing tool to upload content to our own platform accounts.</li>
+    <li>Visitors to this website.</li>
+  </ul>
+  <p>The publishing tool is <strong>not a public product</strong>. It is not offered to end users. It authenticates only against accounts we own.</p>
+
+  <h2>2. Data we access from TikTok</h2>
+  <p>When a Couple Things team member signs in to the publishing tool via TikTok Login Kit, we access the following data through the TikTok API, strictly for operating our own brand account:</p>
+  <ul>
+    <li><strong>Basic profile</strong> (<code>user.info.basic</code>): open ID, username, display name, avatar URL. Used to confirm the tool is connected to the correct brand account.</li>
+    <li><strong>Content posting</strong> (<code>video.publish</code>, <code>video.upload</code>): the tool uploads pre-rendered MP4 videos that we produced ourselves to our own account, and reads upload status to track publishing.</li>
+  </ul>
+  <p>We do not access, store, or process data belonging to any TikTok user other than the Couple Things brand account owner.</p>
+
+  <h2>3. How we use the data</h2>
+  <ul>
+    <li>To publish our own original animated videos to our own TikTok account.</li>
+    <li>To display the connected account name in our internal admin UI.</li>
+    <li>To log publishing status (success / failure / video ID) for our internal records.</li>
+  </ul>
+
+  <h2>4. How we store and protect data</h2>
+  <ul>
+    <li>OAuth access tokens are stored encrypted at rest in our private infrastructure.</li>
+    <li>Access is restricted to authorized Couple Things team members.</li>
+    <li>We do not sell, share, or transmit TikTok data to any third party.</li>
+    <li>We do not use TikTok data for advertising, profiling, or analytics beyond internal publishing logs.</li>
+  </ul>
+
+  <h2>5. Data retention</h2>
+  <p>Access tokens are retained only as long as the brand account remains connected to the tool. Publishing logs (video ID, timestamp, status) are retained indefinitely for internal record-keeping. No personal data of other users is retained because none is collected.</p>
+
+  <h2>6. Your rights</h2>
+  <p>The brand account owner can revoke the tool's access at any time from TikTok's connected-apps settings. Upon revocation, we delete the stored access token within 30 days.</p>
+
+  <h2>7. Third-party services</h2>
+  <p>The publishing tool integrates with TikTok, Instagram (Meta), and YouTube (Google) APIs. Use of those APIs is also governed by:</p>
+  <ul>
+    <li><a href="https://www.tiktok.com/legal/page/global/privacy-policy/en">TikTok Privacy Policy</a></li>
+    <li><a href="https://privacycenter.instagram.com/policy">Instagram Privacy Policy</a></li>
+    <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+  </ul>
+
+  <h2>8. Children</h2>
+  <p>The publishing tool is not directed at children under 13 and does not knowingly collect data from them.</p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>We may update this policy. The "Last updated" date above reflects the most recent revision.</p>
+
+  <h2>10. Contact</h2>
+  <p>Questions: <a href="mailto:sugurukaibara@gmail.com">sugurukaibara@gmail.com</a></p>
+</main>
+</body>
+</html>
