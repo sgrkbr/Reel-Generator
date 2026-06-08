@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OAuth Callback — Couple Things</title>
+<style>
+  :root { --bg:#0a0a0a; --fg:#f5f5f5; --muted:#8a8a8a; --accent:#ff4d6d; --ok:#4ade80; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif; line-height: 1.6; }
+  main { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+  h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); margin-bottom: 40px; }
+  .row { background: #161616; border: 1px solid #262626; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 8px; }
+  .value { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; word-break: break-all; color: var(--fg); padding-right: 80px; position: relative; }
+  .copy { position: absolute; top: -2px; right: 0; background: var(--accent); color: #fff; border: 0; padding: 6px 12px; font-size: 12px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+  .copy:hover { opacity: 0.9; }
+  .copy.copied { background: var(--ok); }
+  .empty { color: var(--muted); font-style: italic; }
+  .footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+  .footer a { color: var(--accent); }
+  details { margin-top: 24px; }
+  summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+  pre { background: #161616; border: 1px solid #262626; border-radius: 8px; padding: 16px; font-size: 12px; margin-top: 12px; overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>OAuth callback</h1>
+  <p class="sub">TikTok redirected here after authorization. Copy the values below into your local token-exchange script.</p>
+
+  <div class="row">
+    <div class="label">Authorization code</div>
+    <div class="value" id="code-wrap"><span id="code" class="empty">(none)</span><button class="copy" data-target="code">Copy</button></div>
+  </div>
+
+  <div class="row">
+    <div class="label">State</div>
+    <div class="value" id="state-wrap"><span id="state" class="empty">(none)</span><button class="copy" data-target="state">Copy</button></div>
+  </div>
+
+  <div class="row">
+    <div class="label">Scopes granted</div>
+    <div class="value" id="scopes-wrap"><span id="scopes" class="empty">(none)</span><button class="copy" data-target="scopes">Copy</button></div>
+  </div>
+
+  <details>
+    <summary>Raw query string</summary>
+    <pre id="raw"></pre>
+  </details>
+
+  <details>
+    <summary>Error (if any)</summary>
+    <pre id="error"></pre>
+  </details>
+
+  <p class="footer">This page is for development use only. <a href="./">Back to Couple Things</a></p>
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const fields = { code: 'code', state: 'state', scopes: 'scopes' };
+  for (const [id, key] of Object.entries(fields)) {
+    const v = params.get(key);
+    const el = document.getElementById(id);
+    if (v) { el.textContent = v; el.classList.remove('empty'); }
+  }
+  document.getElementById('raw').textContent = window.location.search || '(empty)';
+  const err = params.get('error');
+  document.getElementById('error').textContent = err
+    ? JSON.stringify({ error: err, description: params.get('error_description') }, null, 2)
+    : '(none)';
+  document.querySelectorAll('.copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (target.classList.contains('empty')) return;
+      try {
+        await navigator.clipboard.writeText(target.textContent);
+        const old = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = old; btn.classList.remove('copied'); }, 1200);
+      } catch (e) { alert('Copy failed: ' + e.message); }
+    });
+  });
+</script>
+</body>
+</html>
