@@ -26,6 +26,8 @@ from pathlib import Path
 import requests
 from dotenv import load_dotenv
 
+from _env_file import update_env
+
 AUTHORIZE_URL = "https://www.tiktok.com/v2/auth/authorize/"
 TOKEN_URL = "https://open.tiktokapis.com/v2/oauth/token/"
 
@@ -63,22 +65,6 @@ def _exchange_code(client_key: str, client_secret: str, code: str, redirect_uri:
     if "error" in payload and payload.get("error"):
         raise SystemExit(f"Token exchange returned error: {payload}")
     return payload
-
-
-def _update_env(values: dict[str, str]) -> None:
-    lines = ENV_PATH.read_text().splitlines() if ENV_PATH.exists() else []
-    keys_to_set = set(values.keys())
-    out: list[str] = []
-    for line in lines:
-        key = line.split("=", 1)[0].strip() if "=" in line and not line.lstrip().startswith("#") else None
-        if key in keys_to_set:
-            out.append(f"{key}={values[key]}")
-            keys_to_set.discard(key)
-        else:
-            out.append(line)
-    for k in keys_to_set:
-        out.append(f"{k}={values[k]}")
-    ENV_PATH.write_text("\n".join(out) + "\n")
 
 
 def main() -> None:
@@ -132,12 +118,13 @@ def main() -> None:
     if not access_token:
         sys.exit(f"No access_token in response: {payload}")
 
-    _update_env(
+    update_env(
+        ENV_PATH,
         {
             "TIKTOK_ACCESS_TOKEN": access_token,
             "TIKTOK_REFRESH_TOKEN": refresh_token,
             "TIKTOK_OPEN_ID": open_id,
-        }
+        },
     )
 
     print()
