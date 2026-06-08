@@ -17,6 +17,7 @@ Higgsfield × TikTok 起点で **2D アニメのカップルあるあるショ�
 | [`docs/07-automation-architecture.md`](docs/07-automation-architecture.md) | 生成 + 投稿の自動化アーキテクチャ |
 | [`docs/08-setup.md`](docs/08-setup.md) | Postiz / Cloudflare R2 / GitHub Secrets セットアップ手順 |
 | [`docs/09-account-setup.md`](docs/09-account-setup.md) | TikTok / Instagram / YouTube アカウント鞍替え設定 + 必要画像 |
+| [`docs/10-api-credentials.md`](docs/10-api-credentials.md) | TikTok / Meta / Google 公式 API クレデンシャル申請手順 |
 
 ## コード構成
 
