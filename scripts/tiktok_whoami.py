@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 USER_INFO_URL = "https://open.tiktokapis.com/v2/user/info/"
-FIELDS = "open_id,union_id,avatar_url,display_name,username"
+FIELDS = "open_id,union_id,avatar_url,display_name"
 
 
 def main() -> None:
