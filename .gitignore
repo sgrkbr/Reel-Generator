@@ -16,5 +16,6 @@ final/
 *.jpeg
 !assets/**/*.png
 !assets/**/*.jpg
+!site/**/*.png
 !docs/**/*.png
 .DS_Store

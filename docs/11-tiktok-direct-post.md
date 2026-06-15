@@ -8,7 +8,7 @@ Couple Things 専用に作った TikTok 投稿ツールの使い方。Sandbox �
 
 - `docs/09-account-setup.md` と本ドキュメント (`11`) は別系統。`09` は Postiz 経由、こちらは **TikTok 公式 API を直接叩く** ルート。最終的にどちらを採用するかはまだ決めてない (Postiz は審査不要だが UX 要件の制約あり、こちらは審査必要だが完全自動化が可能)。
 - このドキュメントは「自前で TikTok for Developers アプリを作って Direct Post する」ルートの実装。`@couplethings_daily` の単一アカウント運用前提。
-- 環境変数は `.env`、values は GitHub Pages の `https://sgrkbr.github.io/Reel-Generator/` 配信物に依存。
+- 環境変数は `.env`、values は GitHub Pages の `https://sgrkbr.github.io/CoupleThings/` 配信物に依存。
 
 ---
 
@@ -30,7 +30,7 @@ scripts/_env_file.py               # .env を壊さず KEY=VALUE を上書き更
 ```
 TIKTOK_CLIENT_KEY=...
 TIKTOK_CLIENT_SECRET=...
-TIKTOK_REDIRECT_URI=https://sgrkbr.github.io/Reel-Generator/callback.html
+TIKTOK_REDIRECT_URI=https://sgrkbr.github.io/CoupleThings/callback.html
 TIKTOK_SCOPES=user.info.basic,video.publish,video.upload
 TIKTOK_ACCESS_TOKEN=...         # auth 実行後に自動で入る
 TIKTOK_REFRESH_TOKEN=...        # 同上、60 日有効
@@ -44,13 +44,13 @@ TIKTOK_OPEN_ID=...              # 同上、アカウント識別子
 ### 2.1 TikTok for Developers アプリ作成
 1. https://developers.tiktok.com/ にログイン (couplethings.contact@gmail.com)
 2. **Manage apps** → **Connect an app**
-3. Production の App details に LP/Privacy/Terms URL を入力 (`https://sgrkbr.github.io/Reel-Generator/...`)
+3. Production の App details に LP/Privacy/Terms URL を入力 (`https://sgrkbr.github.io/CoupleThings/...`)
 4. URL prefix を verify (signature file は `gh-pages` ブランチに置く)
 5. **Sandbox** タブで `couplethings-dev` を作成
 6. Products に **Login Kit** と **Content Posting API** を追加
 7. Content Posting API の詳細で **Direct Post** トグル ON
 8. Scopes に `user.info.basic` / `video.publish` / `video.upload` を追加
-9. Login Kit の Redirect URI に `https://sgrkbr.github.io/Reel-Generator/callback.html`
+9. Login Kit の Redirect URI に `https://sgrkbr.github.io/CoupleThings/callback.html`
 10. **Target users** に `couplethings_daily` を追加
 11. **Apply changes** で保存
 12. App details の **Client key / Client secret** を `.env` に転記

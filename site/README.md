@@ -1,6 +1,6 @@
-# Couple Things — public site
+# CoupleThings — public site
 
-Static site hosted at `https://sgrkbr.github.io/Reel-Generator/` via GitHub Pages.
+Static site hosted at `https://sgrkbr.github.io/CoupleThings/` via GitHub Pages.
 
 ## Purpose
 

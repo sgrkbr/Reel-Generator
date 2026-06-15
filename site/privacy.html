@@ -3,15 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Privacy Policy — Couple Things</title>
+<title>CoupleThings — Privacy Policy</title>
+<link rel="icon" type="image/png" href="./assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="./assets/logo-256.png" />
 <style>
   :root { --bg:#0a0a0a; --fg:#f5f5f5; --muted:#8a8a8a; --accent:#ff4d6d; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif; line-height: 1.65; }
-  main { max-width: 720px; margin: 0 auto; padding: 64px 24px 120px; }
-  .back { color: var(--muted); text-decoration: none; font-size: 13px; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 24px 120px; }
+  .page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+  .page-header img { width: 48px; height: 48px; border-radius: 50%; background:#fff; }
+  .page-header .name { font-size: 15px; font-weight: 700; letter-spacing: 0.05em; color: var(--fg); }
+  .back { color: var(--muted); text-decoration: none; font-size: 13px; display: inline-block; margin-bottom: 16px; }
   .back:hover { color: var(--fg); }
-  h1 { font-size: 36px; font-weight: 800; margin: 24px 0 8px; letter-spacing: -0.02em; }
+  h1 { font-size: 36px; font-weight: 800; margin: 16px 0 8px; letter-spacing: -0.02em; }
   .updated { color: var(--muted); font-size: 13px; margin-bottom: 40px; }
   h2 { font-size: 18px; font-weight: 700; margin: 40px 0 12px; }
   p, li { margin-bottom: 12px; color: #d4d4d4; }
@@ -22,27 +27,31 @@
 </head>
 <body>
 <main>
-  <a class="back" href="./">← Couple Things</a>
+  <div class="page-header">
+    <img src="./assets/logo-256.png" alt="CoupleThings" />
+    <span class="name">CoupleThings</span>
+  </div>
+  <a class="back" href="./">← Back to CoupleThings</a>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: June 8, 2026</p>
+  <p class="updated">Last updated: June 15, 2026</p>
 
-  <p>Couple Things ("we", "us", "our") operates the website at <a href="https://sgrkbr.github.io/Reel-Generator/">sgrkbr.github.io/Reel-Generator</a> and an internal publishing tool used solely to manage our own brand-owned short-video accounts. This policy explains what data the tool handles when it interacts with third-party platforms (TikTok, Instagram, YouTube).</p>
+  <p>CoupleThings ("we", "us", "our") operates the website at <a href="https://sgrkbr.github.io/CoupleThings/">sgrkbr.github.io/CoupleThings</a> and an internal publishing tool used solely to manage our own brand-owned short-video accounts. This policy explains what data the tool handles when it interacts with third-party platforms (TikTok, Instagram, YouTube).</p>
 
   <h2>1. Who this policy applies to</h2>
   <p>This policy applies to:</p>
   <ul>
-    <li>The Couple Things brand team members who use the internal publishing tool to upload content to our own platform accounts.</li>
+    <li>The CoupleThings brand team members who use the internal publishing tool to upload content to our own platform accounts.</li>
     <li>Visitors to this website.</li>
   </ul>
   <p>The publishing tool is <strong>not a public product</strong>. It is not offered to end users. It authenticates only against accounts we own.</p>
 
   <h2>2. Data we access from TikTok</h2>
-  <p>When a Couple Things team member signs in to the publishing tool via TikTok Login Kit, we access the following data through the TikTok API, strictly for operating our own brand account:</p>
+  <p>When a CoupleThings team member signs in to the publishing tool via TikTok Login Kit, we access the following data through the TikTok API, strictly for operating our own brand account:</p>
   <ul>
     <li><strong>Basic profile</strong> (<code>user.info.basic</code>): open ID, username, display name, avatar URL. Used to confirm the tool is connected to the correct brand account.</li>
     <li><strong>Content posting</strong> (<code>video.publish</code>, <code>video.upload</code>): the tool uploads pre-rendered MP4 videos that we produced ourselves to our own account, and reads upload status to track publishing.</li>
   </ul>
-  <p>We do not access, store, or process data belonging to any TikTok user other than the Couple Things brand account owner.</p>
+  <p>We do not access, store, or process data belonging to any TikTok user other than the CoupleThings brand account owner.</p>
 
   <h2>3. How we use the data</h2>
   <ul>
@@ -54,7 +63,7 @@
   <h2>4. How we store and protect data</h2>
   <ul>
     <li>OAuth access tokens are stored encrypted at rest in our private infrastructure.</li>
-    <li>Access is restricted to authorized Couple Things team members.</li>
+    <li>Access is restricted to authorized CoupleThings team members.</li>
     <li>We do not sell, share, or transmit TikTok data to any third party.</li>
     <li>We do not use TikTok data for advertising, profiling, or analytics beyond internal publishing logs.</li>
   </ul>
