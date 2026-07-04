@@ -1,6 +1,9 @@
 name: pilot-assemble
 
 on:
+  push:
+    branches: [claude/zen-hopper-214mam]
+    paths: ['scripts/pilot/**', '.github/workflows/pilot-assemble.yml']
   workflow_dispatch:
 
 permissions:
