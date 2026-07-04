@@ -18,6 +18,8 @@ Higgsfield × TikTok 起点で **2D アニメのカップルあるあるショ�
 | [`docs/08-setup.md`](docs/08-setup.md) | Postiz / Cloudflare R2 / GitHub Secrets セットアップ手順 |
 | [`docs/09-account-setup.md`](docs/09-account-setup.md) | TikTok / Instagram / YouTube アカウント鞍替え設定 + 必要画像 |
 | [`docs/10-api-credentials.md`](docs/10-api-credentials.md) | TikTok / Meta / Google 公式 API クレデンシャル申請手順 |
+| [`docs/11-tiktok-direct-post.md`](docs/11-tiktok-direct-post.md) | TikTok Direct Post 投稿パイプライン |
+| [`docs/12-monetization-plan.md`](docs/12-monetization-plan.md) | 収益化計画 (5層スタック / ユニットエコノミクス / 収益ゲート) |
 
 ## コード構成
 
