@@ -1,0 +1,12 @@
+{
+  "audio": "wa_narration.wav",
+  "output": "the-week-ahead-pilot.mp4",
+  "blocks": [
+    {"image": "wa1.png", "words": 22, "captions": ["a new Fed chair", "his FIRST minutes drop this week", "the week ahead"]},
+    {"image": "wa2.png", "words": 46, "captions": ["WED: FOMC minutes (June meeting)", "first under new chair Kevin Warsh", "he skipped the dot plot...", "how divided is the committee?"]},
+    {"image": "wa3.png", "words": 33, "captions": ["THU: weekly jobless claims", "57K jobs... one miss is a blip", "two is a trend"]},
+    {"image": "wa4.png", "words": 21, "captions": ["next week: Q2 earnings kick off", "big banks go first"]},
+    {"image": "wa5.png", "words": 19, "captions": ["quiet calendar =", "when surprises hit hardest"]},
+    {"image": "wa6.png", "words": 7, "captions": ["see you Saturday"]}
+  ]
+}

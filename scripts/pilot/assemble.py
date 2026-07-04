@@ -1,21 +1,15 @@
 #!/usr/bin/env python3
-"""Pilot assembly: 6 stills + 1 narration -> 9:16 Short with Ken Burns + burned captions."""
+"""Manifest-driven assembly: stills + narration -> 9:16 Short with Ken Burns + burned captions.
+
+Usage: python3 assemble.py <manifest.json>
+Manifest: {"audio": "narration.wav", "output": "out.mp4",
+           "blocks": [{"image": "img1.png", "words": 25, "captions": ["..."]}]}
+Asset paths are relative to the manifest's directory.
+"""
 import json, subprocess, sys, os, textwrap
 
-SP = os.path.dirname(os.path.abspath(__file__))
 W, H = 1080, 1920
 FPS = 30
-
-# blocks: (image_file, caption_chunks[]) — chunks shown sequentially within block,
-# block duration allocated proportionally to word count of narration text
-BLOCKS = [
-    ("img1.png", 25, ["57,000 jobs added in June", "barely HALF of what was expected", "Here's your week in money"]),
-    ("img2.png", 28, ["Stocks didn't mind", "Dow +595 → RECORD HIGH", "major indexes up ~2% this week"]),
-    ("img3.png", 26, ["Why is bad news good news?", "cooler jobs = less fear of a Fed hike", "less rate pressure → more appetite"]),
-    ("img4.png", 30, ["not everyone joined the party", "chipmakers fell again — AI trade too hot?", "Apple quietly gained almost 5%"]),
-    ("img5.png", 26, ["10-year Treasury yield → 4.46%", "Bitcoin back above $61,000", "after a 21-month low"]),
-    ("img6.png", 22, ["softer economy = good news for markets", "...for now", "see you next Saturday"]),
-]
 DISCLAIMER = "Not financial advice. For information only."
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 
@@ -27,24 +21,25 @@ def probe_duration(path):
 def esc(s):
     return s.replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\’").replace("%", "\\%")
 
-def main():
-    audio = os.path.join(SP, "narration.wav")
+def main(manifest_path):
+    sp = os.path.dirname(os.path.abspath(manifest_path))
+    m = json.load(open(manifest_path))
+    blocks = m["blocks"]
+    audio = os.path.join(sp, m["audio"])
     total = probe_duration(audio)
-    words = sum(b[1] for b in BLOCKS)
+    words = sum(b["words"] for b in blocks)
     print(f"audio {total:.2f}s, {words} words")
 
-    # per-block durations proportional to word count
     t = 0.0
-    segments = []  # (img, start, dur, chunks)
-    for img, wc, chunks in BLOCKS:
-        dur = total * wc / words
-        segments.append((img, t, dur, chunks))
+    segments = []  # (img, start, dur, captions)
+    for b in blocks:
+        dur = total * b["words"] / words
+        segments.append((b["image"], t, dur, b["captions"]))
         t += dur
 
-    # build filter graph: one zoompan clip per image, concat, then drawtext captions
     inputs, filters, concat_refs = [], [], []
     for i, (img, start, dur, chunks) in enumerate(segments):
-        inputs += ["-loop", "1", "-t", f"{dur:.3f}", "-framerate", str(FPS), "-i", os.path.join(SP, img)]
+        inputs += ["-loop", "1", "-t", f"{dur:.3f}", "-framerate", str(FPS), "-i", os.path.join(sp, img)]
         frames = int(dur * FPS)
         zdir = "zoom+0.0009" if i % 2 == 0 else "1.28-0.0009*on"
         filters.append(
@@ -53,7 +48,6 @@ def main():
         concat_refs.append(f"[v{i}]")
     filters.append("".join(concat_refs) + f"concat=n={len(segments)}:v=1:a=0[base]")
 
-    # captions: chunks evenly spaced within their block
     draw = "[base]"
     idx = 0
     for img, start, dur, chunks in segments:
@@ -69,20 +63,19 @@ def main():
             )
             draw = out
             idx += 1
-    # disclaimer, small, whole video
     filters.append(
         f"{draw}drawtext=fontfile={FONT}:text='{esc(DISCLAIMER)}':fontsize=28:fontcolor=white@0.55:"
         f"borderw=2:bordercolor=black@0.5:x=(w-text_w)/2:y=h*0.955[vout]"
     )
 
+    outpath = os.path.join(sp, m["output"])
     cmd = ["ffmpeg", "-y", *inputs, "-i", audio,
            "-filter_complex", ";".join(filters),
            "-map", "[vout]", "-map", f"{len(segments)}:a",
            "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
-           "-c:a", "aac", "-b:a", "160k", "-shortest",
-           os.path.join(SP, "week-in-money-pilot.mp4")]
+           "-c:a", "aac", "-b:a", "160k", "-shortest", outpath]
     subprocess.run(cmd, check=True)
-    print("done:", os.path.join(SP, "week-in-money-pilot.mp4"))
+    print("done:", outpath)
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1])

@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Install ffmpeg
         run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg fonts-dejavu-core
@@ -22,24 +24,24 @@ jobs:
         working-directory: scripts/pilot
         run: |
           base=https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL
-          curl -sf -o img1.png "$base/hf_20260704_050606_e68451bd-8d42-4c56-bed0-d0513fabceb6.png"
-          curl -sf -o img2.png "$base/hf_20260704_050608_acd0e9d6-7a74-4161-bdc0-ddfc77df2682.png"
-          curl -sf -o img3.png "$base/hf_20260704_050609_e6c7cc67-2427-413f-b7ad-ac774b675bfb.png"
-          curl -sf -o img4.png "$base/hf_20260704_050611_77e70075-5212-4a88-9567-00745318d85f.png"
-          curl -sf -o img5.png "$base/hf_20260704_050612_1b11b0ff-a355-47b1-810e-407319615597.png"
-          curl -sf -o img6.png "$base/hf_20260704_050613_a9e8e762-1f9a-46a0-9cbc-55f8a9f8420b.png"
-          curl -sf -o narration.wav "$base/hf_20260704_061454_7ddc2701-c394-46ae-ad80-ee8ffff1496d.wav"
+          curl -sf -o wa1.png "$base/hf_20260704_074022_9e8e254c-3c8a-4ee0-8232-c9c6e0c02e73.png"
+          curl -sf -o wa2.png "$base/hf_20260704_074023_fdad3152-3fa8-484f-9a1b-3a072f07ac6b.png"
+          curl -sf -o wa3.png "$base/hf_20260704_074024_57f9de49-ba95-47e0-badb-1db9607c69c5.png"
+          curl -sf -o wa4.png "$base/hf_20260704_074026_dfe46b77-2e1c-413e-816b-5e080d14eef4.png"
+          curl -sf -o wa5.png "$base/hf_20260704_074027_d472ea46-4792-43f6-aaab-98bc694f9617.png"
+          curl -sf -o wa6.png "$base/hf_20260704_074028_24ff60bc-5ae0-477f-a4cc-fe9c2e3c7fcd.png"
+          curl -sf -o wa_narration.wav "$base/hf_20260704_074053_f750e0fc-e19c-4dbd-814b-6cd2ef6abd33.wav"
           ls -la
 
       - name: Assemble video
-        run: python3 scripts/pilot/assemble.py
+        run: python3 scripts/pilot/assemble.py scripts/pilot/weekahead.json
 
       - name: Commit result to branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p assets/pilot
-          cp scripts/pilot/week-in-money-pilot.mp4 assets/pilot/
-          git add -f assets/pilot/week-in-money-pilot.mp4
-          git commit -m "Add CI-assembled pilot video (Week in Money)"
+          cp scripts/pilot/the-week-ahead-pilot.mp4 assets/pilot/
+          git add -f assets/pilot/the-week-ahead-pilot.mp4
+          git commit -m "Add CI-assembled pilot video (The Week Ahead)"
           git push
