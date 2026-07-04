@@ -40,6 +40,6 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p assets/pilot
           cp scripts/pilot/week-in-money-pilot.mp4 assets/pilot/
-          git add assets/pilot/week-in-money-pilot.mp4
+          git add -f assets/pilot/week-in-money-pilot.mp4
           git commit -m "Add CI-assembled pilot video (Week in Money)"
           git push
