@@ -21,6 +21,7 @@ Higgsfield × TikTok 起点で **2D アニメのカップルあるあるショ�
 | [`docs/11-tiktok-direct-post.md`](docs/11-tiktok-direct-post.md) | TikTok Direct Post 投稿パイプライン |
 | [`docs/12-monetization-plan.md`](docs/12-monetization-plan.md) | 収益化計画 (5層スタック / ユニットエコノミクス / 収益ゲート) |
 | [`docs/13-youtube-shorts-strategy.md`](docs/13-youtube-shorts-strategy.md) | YouTube Shorts 攻略 (ターゲット層 / アルゴリズム / 長尺展開) |
+| [`docs/14-niche-reconsideration.md`](docs/14-niche-reconsideration.md) | ニッチ再考 (収益/credit 比較 → ナレーション型ナレッジ路線の提案) |
 
 ## コード構成
 
