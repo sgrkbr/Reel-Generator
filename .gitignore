@@ -19,3 +19,6 @@ final/
 !site/**/*.png
 !docs/**/*.png
 .DS_Store
+scripts/pilot2/frames/
+scripts/pilot2/*.wav
+scripts/pilot2/timeline.json

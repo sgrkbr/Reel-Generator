@@ -3,7 +3,7 @@ name: pilot-assemble
 on:
   push:
     branches: [claude/zen-hopper-214mam]
-    paths: ['scripts/pilot/**', '.github/workflows/pilot-assemble.yml']
+    paths: ['scripts/pilot2/**', '.github/workflows/pilot-assemble.yml']
   workflow_dispatch:
 
 permissions:
@@ -18,30 +18,30 @@ jobs:
           ref: ${{ github.ref_name }}
 
       - name: Install ffmpeg
-        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg fonts-dejavu-core
+        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
 
-      - name: Download generated assets from Higgsfield CDN
-        working-directory: scripts/pilot
+      - name: Install python deps + chromium
         run: |
-          base=https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL
-          curl -sf -o wa1.png "$base/hf_20260704_074022_9e8e254c-3c8a-4ee0-8232-c9c6e0c02e73.png"
-          curl -sf -o wa2.png "$base/hf_20260704_074023_fdad3152-3fa8-484f-9a1b-3a072f07ac6b.png"
-          curl -sf -o wa3.png "$base/hf_20260704_074024_57f9de49-ba95-47e0-badb-1db9607c69c5.png"
-          curl -sf -o wa4.png "$base/hf_20260704_074026_dfe46b77-2e1c-413e-816b-5e080d14eef4.png"
-          curl -sf -o wa5.png "$base/hf_20260704_074027_d472ea46-4792-43f6-aaab-98bc694f9617.png"
-          curl -sf -o wa6.png "$base/hf_20260704_074028_24ff60bc-5ae0-477f-a4cc-fe9c2e3c7fcd.png"
-          curl -sf -o wa_narration.wav "$base/hf_20260704_074053_f750e0fc-e19c-4dbd-814b-6cd2ef6abd33.wav"
-          ls -la
+          pip install --quiet faster-whisper playwright
+          python3 -m playwright install --with-deps chromium
 
-      - name: Assemble video
-        run: python3 scripts/pilot/assemble.py scripts/pilot/weekahead.json
+      - name: Download narration from Higgsfield CDN
+        working-directory: scripts/pilot2
+        run: |
+          curl -sf -o wa_narration.wav "$NARRATION_URL"
+          ls -la
+        env:
+          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260704_133953_48c8f685-3426-4be4-8408-7c6e7d9bec70.wav
+
+      - name: Render motion graphics video
+        run: python3 scripts/pilot2/render.py scripts/pilot2/weekahead2.json
 
       - name: Commit result to branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p assets/pilot
-          cp scripts/pilot/the-week-ahead-pilot.mp4 assets/pilot/
-          git add -f assets/pilot/the-week-ahead-pilot.mp4
-          git commit -m "Add CI-assembled pilot video (The Week Ahead)"
+          cp scripts/pilot2/the-week-ahead-v2.mp4 assets/pilot/
+          git add -f assets/pilot/the-week-ahead-v2.mp4
+          git commit -m "Add CI-rendered motion graphics pilot (The Week Ahead v2)"
           git push
