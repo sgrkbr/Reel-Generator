@@ -1,0 +1,42 @@
+name: pilot-assemble
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg fonts-dejavu-core
+
+      - name: Download generated assets from Higgsfield CDN
+        working-directory: scripts/pilot
+        run: |
+          base=https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL
+          curl -sf -o img1.png "$base/hf_20260704_050606_e68451bd-8d42-4c56-bed0-d0513fabceb6.png"
+          curl -sf -o img2.png "$base/hf_20260704_050608_acd0e9d6-7a74-4161-bdc0-ddfc77df2682.png"
+          curl -sf -o img3.png "$base/hf_20260704_050609_e6c7cc67-2427-413f-b7ad-ac774b675bfb.png"
+          curl -sf -o img4.png "$base/hf_20260704_050611_77e70075-5212-4a88-9567-00745318d85f.png"
+          curl -sf -o img5.png "$base/hf_20260704_050612_1b11b0ff-a355-47b1-810e-407319615597.png"
+          curl -sf -o img6.png "$base/hf_20260704_050613_a9e8e762-1f9a-46a0-9cbc-55f8a9f8420b.png"
+          curl -sf -o narration.wav "$base/hf_20260704_061454_7ddc2701-c394-46ae-ad80-ee8ffff1496d.wav"
+          ls -la
+
+      - name: Assemble video
+        run: python3 scripts/pilot/assemble.py
+
+      - name: Commit result to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p assets/pilot
+          cp scripts/pilot/week-in-money-pilot.mp4 assets/pilot/
+          git add assets/pilot/week-in-money-pilot.mp4
+          git commit -m "Add CI-assembled pilot video (Week in Money)"
+          git push
