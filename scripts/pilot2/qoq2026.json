@@ -1,0 +1,60 @@
+{
+  "audio": "qoq_narration.wav",
+  "output": "quarter-over-quarter-pilot.mp4",
+  "fps": 30,
+  "brand": {"series": "QUARTER OVER QUARTER", "date": "Q1 → Q2 2026", "handle": "@weeklyledger"},
+  "ticker": [
+    {"s": "S&P 500", "v": "Q1 -4.3% → Q2 +14.9%", "c": "u"},
+    {"s": "NASDAQ", "v": "Q1 -7.0% → BEST SINCE '20", "c": "u"},
+    {"s": "BTC", "v": "$84K → $67.6K → $60K", "c": "d"},
+    {"s": "BRENT", "v": "$61 → $118 (Q1 PEAK)", "c": "d"},
+    {"s": "Q2 EPS EST", "v": "18.8% → 23.1%", "c": "u"},
+    {"s": "DOW", "v": "RECORD CLOSE JUL 2", "c": "u"}
+  ],
+  "scenes": [
+    {"type": "hook", "words": 16,
+     "script": "The worst quarter in years. Then, the best since twenty-twenty. Same market — ninety days apart.",
+     "headline": "90 DAYS.\nTOTAL\nWHIPLASH.",
+     "sub": "Q1 2026 <b>vs</b> Q2 2026",
+     "stats": [
+       {"v": "-4.3%", "l": "S&P 500 · Q1", "c": "r"},
+       {"v": "+14.9%", "l": "S&P 500 · Q2", "c": "g"},
+       {"v": "$118", "l": "OIL PEAK · MAR", "c": "a"}
+     ]},
+    {"type": "yoy", "words": 30,
+     "script": "First, the storm. The Iran conflict sent oil from sixty-one dollars to one-eighteen. The S&P dropped four point three percent. The Nasdaq, seven. Bitcoin? Down nineteen.",
+     "label": "Q1 · JAN–MAR · THE STORM",
+     "headline": "FIRST,\nTHE STORM.",
+     "cols": ["JAN 1", "MAR 31"],
+     "rows": [
+       {"m": "BRENT OIL", "then": "$61", "now": "$118", "d": "+94%", "c": "r"},
+       {"m": "S&P 500", "then": "", "now": "-4.3%", "d": "Q1", "c": "r"},
+       {"m": "BITCOIN", "then": "$84K", "now": "$67.6K", "d": "-19%", "c": "r"}
+     ]},
+    {"type": "surge", "words": 24,
+     "script": "Then, the flip. Q2: the S&P surged fourteen point nine percent — its best quarter since twenty-twenty. The Dow ended at a record.",
+     "label": "Q2 · APR–JUN · THE COMEBACK",
+     "headline": "BEST QUARTER\nSINCE 2020.",
+     "big": {"value": 14.9, "caption": "S&P 500 · Q2 2026 — Dow at a record"}},
+    {"type": "yoy", "words": 26,
+     "script": "But Bitcoin missed the party. Thirteen straight days of ETF outflows. Sixty-seven thousand, down to sixty. While stocks rallied, crypto de-risked.",
+     "label": "THE ODD ONE OUT",
+     "headline": "BITCOIN\nMISSED IT.",
+     "cols": ["MAR 31", "JUN 30"],
+     "rows": [
+       {"m": "BITCOIN", "then": "$67.6K", "now": "$60K", "d": "-11%", "c": "r"}
+     ],
+     "stats": [
+       {"v": "13", "l": "DAYS OF ETF OUTFLOWS", "c": "r"},
+       {"v": "2", "l": "RED QUARTERS IN A ROW", "c": "r"}
+     ]},
+    {"type": "beat", "words": 17,
+     "script": "And the fuel wasn't hype. It was earnings. Profit forecasts jumped from eighteen point eight, to twenty-three percent.",
+     "headline": "EARNINGS,\nNOT HYPE.",
+     "sub": "Q2 profit forecasts: <b>18.8% → 23.1%</b>"},
+    {"type": "outro", "words": 10,
+     "script": "From storm, to surge. That's the quarter, over the quarter.",
+     "headline": "STORM,\nTHEN SURGE.",
+     "next": "NEW BRIEFINGS · EVERY SAT · SUN · WED"}
+  ]
+}

@@ -123,6 +123,9 @@ html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;}
 .btcchart .bv{font-family:'ArchivoBlack';font-size:52px;fill:var(--ink);}
 .btcchart .bl{font-size:29px;fill:var(--muted);letter-spacing:.08em;}
 .btcchart .atl{fill:var(--amber);}
+.surge .big{font-size:230px;}
+.surge .big .suf{font-size:150px;}
+.surge .caption-big{font-size:42px;margin-top:22px;}
 /* claims compaction */
 .claims .big{font-size:272px;}
 .claims .big .suf{font-size:160px;}
@@ -209,11 +212,16 @@ function buildScene(s,i){
     const tks=s.tickers||["JPM","BAC","WFC","GS","C"];
     inner+=`<div class="bars">${tks.map((tk,k)=>`<div class="col"><div class="b b${k}"></div><span class="tk tk${k}">${tk}</span></div>`).join("")}</div>`;
   }
+  if(s.type==="surge"){
+    inner+=`<div class="big" style="color:var(--green);text-shadow:0 0 90px rgba(67,224,138,.45)"><span class="val">+0</span><span class="suf">%</span><div class="ring" style="border-color:var(--green)"></div></div>
+      <div class="caption-big">${s.big.caption||""}</div>`;
+  }
   if(s.type==="yoy"){
-    inner+=`<div class="yoyrows"><div class="yoyhead"><span>JUL '25</span><span style="margin-left:120px">JUL '26</span></div>
+    const cols=s.cols||["JUL '25","JUL '26"];
+    inner+=`<div class="yoyrows"><div class="yoyhead"><span>${cols[0]}</span><span style="margin-left:120px">${cols[1]}</span></div>
       ${s.rows.map((r,k)=>`<div class="yr ${r.c} yr${k}">
-        <span class="m">${r.m}</span><span class="then">${r.then}</span>
-        <span class="ar">→</span><span class="nowv">${r.now}</span><span class="dl">${r.d}</span>
+        <span class="m">${r.m}</span>${r.then?`<span class="then">${r.then}</span>
+        <span class="ar">→</span>`:``}<span class="nowv">${r.now}</span><span class="dl">${r.d}</span>
       </div>`).join("")}</div>`;
   }
   if(s.type==="btc"){
@@ -358,14 +366,24 @@ window.__seek=function(t){
       tk.style.opacity=kp; tk.style.transform=`translateY(${(1-kp)*30}px)`;
     });
   }
+  if(s.type==="surge"){
+    const v=(s.big.value*ee(clamp(p*1.7,0,1))).toFixed(1);
+    el.querySelector(".val").textContent="+"+v;
+    const big=el.querySelector(".big");
+    const done=p>0.62;
+    big.style.transform=`scale(${done?1+0.05*Math.exp(-7*(p-0.62))*Math.cos(20*(p-0.62)):1})`;
+    const ring=el.querySelector(".ring");
+    if(done){const rp=clamp((p-0.62)/0.11,0,1);ring.style.opacity=(1-rp)*0.9;ring.style.transform=`scale(${1+rp*7})`;}
+    if(done&&p<0.7)shake=Math.max(shake,0.5*Math.exp(-14*(p-0.62)));
+  }
   if(s.type==="yoy"){
     el.querySelectorAll(".yr").forEach((row,k)=>{
       const st=0.12+0.22*k;
       const rp2=eo(clamp((p-st)/0.10,0,1));
       row.style.opacity=rp2;
-      row.querySelector(".then").style.transform=`translateX(${(1-rp2)*-60}px)`;
+      const th=row.querySelector(".then"); if(th)th.style.transform=`translateX(${(1-rp2)*-60}px)`;
       const ar=row.querySelector(".ar");
-      ar.style.transform=`scaleX(${ob(clamp((p-st-0.05)/0.12,0,1))})`;
+      if(ar)ar.style.transform=`scaleX(${ob(clamp((p-st-0.05)/0.12,0,1))})`;
       const nv=row.querySelector(".nowv");
       const np=ob(clamp((p-st-0.10)/0.14,0,1));
       nv.style.display="inline-block";

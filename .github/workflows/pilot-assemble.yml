@@ -28,20 +28,20 @@ jobs:
       - name: Download narration from Higgsfield CDN
         working-directory: scripts/pilot2
         run: |
-          curl -sf -o yoy_narration.wav "$NARRATION_URL"
+          curl -sf -o qoq_narration.wav "$NARRATION_URL"
           ls -la
         env:
-          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260705_014826_8f343765-d21f-4c20-8989-324f44346959.wav
+          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260705_020341_9a50f3a3-7509-4ad8-8363-5752f5043acf.wav
 
       - name: Render motion graphics video
-        run: python3 scripts/pilot2/render.py scripts/pilot2/yoy2026.json
+        run: python3 scripts/pilot2/render.py scripts/pilot2/qoq2026.json
 
       - name: Commit result to branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p assets/pilot
-          cp scripts/pilot2/year-over-year-pilot.mp4 assets/pilot/
-          git add -f assets/pilot/year-over-year-pilot.mp4
-          git commit -m "Add CI-rendered pilot (Year over Year)"
+          cp scripts/pilot2/quarter-over-quarter-pilot.mp4 assets/pilot/
+          git add -f assets/pilot/quarter-over-quarter-pilot.mp4
+          git commit -m "Add CI-rendered pilot (Quarter over Quarter)"
           git push
