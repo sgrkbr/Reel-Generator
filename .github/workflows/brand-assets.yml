@@ -18,8 +18,9 @@ jobs:
           ref: ${{ github.ref_name }}
 
       - name: Download brand candidates from Higgsfield CDN
-        working-directory: assets/brand
         run: |
+          mkdir -p assets/brand
+          cd assets/brand
           base=https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL
           curl -sf -o logo1.png "$base/hf_20260705_130625_a35e9838-a21d-47b8-8301-22071b63c111.png"
           curl -sf -o logo2.png "$base/hf_20260705_130625_a9b3c741-be9f-42d0-8cc5-179866168355.png"
