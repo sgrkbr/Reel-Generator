@@ -31,7 +31,7 @@ jobs:
           curl -sf -o qoq_narration.wav "$NARRATION_URL"
           ls -la
         env:
-          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260705_020341_9a50f3a3-7509-4ad8-8363-5752f5043acf.wav
+          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260705_052738_9fa78063-a373-46a1-9838-d2bb29db9fc2.wav
 
       - name: Render motion graphics video
         run: python3 scripts/pilot2/render.py scripts/pilot2/qoq2026.json

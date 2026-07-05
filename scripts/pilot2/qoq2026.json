@@ -2,59 +2,305 @@
   "audio": "qoq_narration.wav",
   "output": "quarter-over-quarter-pilot.mp4",
   "fps": 30,
-  "brand": {"series": "QUARTER OVER QUARTER", "date": "Q1 → Q2 2026", "handle": "@weeklyledger"},
+  "brand": {
+    "series": "QUARTER OVER QUARTER",
+    "date": "Q1 → Q2 2026",
+    "handle": "@weeklyledger"
+  },
   "ticker": [
-    {"s": "S&P 500", "v": "Q1 -4.3% → Q2 +14.9%", "c": "u"},
-    {"s": "NASDAQ", "v": "Q1 -7.0% → BEST SINCE '20", "c": "u"},
-    {"s": "BTC", "v": "$84K → $67.6K → $60K", "c": "d"},
-    {"s": "BRENT", "v": "$61 → $118 (Q1 PEAK)", "c": "d"},
-    {"s": "Q2 EPS EST", "v": "18.8% → 23.1%", "c": "u"},
-    {"s": "DOW", "v": "RECORD CLOSE JUL 2", "c": "u"}
+    {
+      "s": "S&P 500",
+      "v": "Q1 -4.3% → Q2 +14.9%",
+      "c": "u"
+    },
+    {
+      "s": "EQUAL-WEIGHT",
+      "v": "Q1 +0.7%",
+      "c": "u"
+    },
+    {
+      "s": "NASDAQ",
+      "v": "Q1 -7.0% → BEST SINCE '20",
+      "c": "u"
+    },
+    {
+      "s": "BTC",
+      "v": "$84K → $67.6K → $60K",
+      "c": "d"
+    },
+    {
+      "s": "BRENT",
+      "v": "$61 → $118 (Q1 PEAK)",
+      "c": "d"
+    },
+    {
+      "s": "CPI",
+      "v": "JAN 2.4% → MAY 4.2%",
+      "c": "d"
+    },
+    {
+      "s": "30-YR",
+      "v": "TOUCHED 5.0% (APR)",
+      "c": "d"
+    },
+    {
+      "s": "Q2 EPS EST",
+      "v": "18.8% → 23.1%",
+      "c": "u"
+    }
   ],
   "scenes": [
-    {"type": "hook", "words": 16,
-     "script": "The worst quarter in years. Then, the best since twenty-twenty. Same market — ninety days apart.",
-     "headline": "90 DAYS.\nTOTAL\nWHIPLASH.",
-     "sub": "Q1 2026 <b>vs</b> Q2 2026",
-     "stats": [
-       {"v": "-4.3%", "l": "S&P 500 · Q1", "c": "r"},
-       {"v": "+14.9%", "l": "S&P 500 · Q2", "c": "g"},
-       {"v": "$118", "l": "OIL PEAK · MAR", "c": "a"}
-     ]},
-    {"type": "yoy", "words": 30,
-     "script": "First, the storm. The Iran conflict sent oil from sixty-one dollars to one-eighteen. The S&P dropped four point three percent. The Nasdaq, seven. Bitcoin? Down nineteen.",
-     "label": "Q1 · JAN–MAR · THE STORM",
-     "headline": "FIRST,\nTHE STORM.",
-     "cols": ["JAN 1", "MAR 31"],
-     "rows": [
-       {"m": "BRENT OIL", "then": "$61", "now": "$118", "d": "+94%", "c": "r"},
-       {"m": "S&P 500", "then": "", "now": "-4.3%", "d": "Q1", "c": "r"},
-       {"m": "BITCOIN", "then": "$84K", "now": "$67.6K", "d": "-19%", "c": "r"}
-     ]},
-    {"type": "surge", "words": 24,
-     "script": "Then, the flip. Q2: the S&P surged fourteen point nine percent — its best quarter since twenty-twenty. The Dow ended at a record.",
-     "label": "Q2 · APR–JUN · THE COMEBACK",
-     "headline": "BEST QUARTER\nSINCE 2020.",
-     "big": {"value": 14.9, "caption": "S&P 500 · Q2 2026 — Dow at a record"}},
-    {"type": "yoy", "words": 26,
-     "script": "But Bitcoin missed the party. Thirteen straight days of ETF outflows. Sixty-seven thousand, down to sixty. While stocks rallied, crypto de-risked.",
-     "label": "THE ODD ONE OUT",
-     "headline": "BITCOIN\nMISSED IT.",
-     "cols": ["MAR 31", "JUN 30"],
-     "rows": [
-       {"m": "BITCOIN", "then": "$67.6K", "now": "$60K", "d": "-11%", "c": "r"}
-     ],
-     "stats": [
-       {"v": "13", "l": "DAYS OF ETF OUTFLOWS", "c": "r"},
-       {"v": "2", "l": "RED QUARTERS IN A ROW", "c": "r"}
-     ]},
-    {"type": "beat", "words": 17,
-     "script": "And the fuel wasn't hype. It was earnings. Profit forecasts jumped from eighteen point eight, to twenty-three percent.",
-     "headline": "EARNINGS,\nNOT HYPE.",
-     "sub": "Q2 profit forecasts: <b>18.8% → 23.1%</b>"},
-    {"type": "outro", "words": 10,
-     "script": "From storm, to surge. That's the quarter, over the quarter.",
-     "headline": "STORM,\nTHEN SURGE.",
-     "next": "NEW BRIEFINGS · EVERY SAT · SUN · WED"}
-  ]
+    {
+      "type": "hook",
+      "words": 16,
+      "script": "The worst quarter in years. Then, the best since twenty-twenty. Same market — ninety days apart.",
+      "headline": "90 DAYS.\nTOTAL\nWHIPLASH.",
+      "sub": "Q1 2026 <b>vs</b> Q2 2026",
+      "stats": [
+        {
+          "v": "-4.3%",
+          "l": "S&P 500 · Q1",
+          "c": "r"
+        },
+        {
+          "v": "+14.9%",
+          "l": "S&P 500 · Q2",
+          "c": "g"
+        },
+        {
+          "v": "$118",
+          "l": "OIL PEAK · MAR",
+          "c": "a"
+        }
+      ]
+    },
+    {
+      "type": "yoy",
+      "words": 30,
+      "script": "Q1 was the storm. The Iran conflict sent oil from sixty-one dollars to one-eighteen — up ninety-four percent. The S&P fell four point three. The Nasdaq dropped seven.",
+      "label": "Q1 · JAN–MAR · THE STORM",
+      "headline": "FIRST,\nTHE STORM.",
+      "cols": [
+        "JAN 1",
+        "MAR 31"
+      ],
+      "rows": [
+        {
+          "m": "BRENT OIL",
+          "then": "$61",
+          "now": "$118",
+          "d": "+94%",
+          "c": "r"
+        },
+        {
+          "m": "S&P 500",
+          "then": "",
+          "now": "-4.3%",
+          "d": "Q1",
+          "c": "r"
+        },
+        {
+          "m": "NASDAQ",
+          "then": "",
+          "now": "-7.0%",
+          "d": "Q1",
+          "c": "r"
+        }
+      ]
+    },
+    {
+      "type": "yoy",
+      "words": 26,
+      "script": "But here's what most people missed: the crash was narrow. Two hundred and ninety of the five hundred stocks actually beat the index. Equal-weighted? Up zero point seven.",
+      "label": "Q1 · UNDER THE HOOD",
+      "headline": "THE CRASH\nWAS NARROW.",
+      "cols": [
+        "",
+        "Q1 RETURN"
+      ],
+      "rows": [
+        {
+          "m": "CAP-WEIGHTED",
+          "then": "",
+          "now": "-4.3%",
+          "d": "MEGA-CAP DRAG",
+          "c": "r"
+        },
+        {
+          "m": "EQUAL-WEIGHT",
+          "then": "",
+          "now": "+0.7%",
+          "d": "POSITIVE",
+          "c": "g"
+        }
+      ],
+      "stats": [
+        {
+          "v": "290/500",
+          "l": "STOCKS BEAT THE INDEX",
+          "c": "a"
+        }
+      ]
+    },
+    {
+      "type": "surge",
+      "words": 23,
+      "script": "Then came the flip. Q2: the S&P surged fourteen point nine percent — the best quarter since twenty-twenty. The Dow closed at a record.",
+      "label": "Q2 · APR–JUN · THE COMEBACK",
+      "headline": "BEST QUARTER\nSINCE 2020.",
+      "big": {
+        "value": 14.9,
+        "caption": "S&P 500 · Q2 2026 — Dow at a record"
+      }
+    },
+    {
+      "type": "yoy",
+      "words": 20,
+      "script": "And the fuel wasn't hype. Profit forecasts jumped from eighteen point eight percent, to twenty-three point one. Earnings did the lifting.",
+      "label": "Q2 · THE FUEL",
+      "headline": "EARNINGS\nDID IT.",
+      "cols": [
+        "MAR 31",
+        "JUN 30"
+      ],
+      "rows": [
+        {
+          "m": "Q2 EPS GROWTH EST",
+          "then": "18.8%",
+          "now": "23.1%",
+          "d": "+4.3PT",
+          "c": "g"
+        },
+        {
+          "m": "REVENUE EST",
+          "then": "9.5%",
+          "now": "12.3%",
+          "d": "+2.8PT",
+          "c": "g"
+        }
+      ]
+    },
+    {
+      "type": "yoy",
+      "words": 27,
+      "script": "Now, the warning light. Inflation: two point four in January. Four point two by May. The thirty-year Treasury touched five percent. Bonds are not celebrating.",
+      "label": "THE WARNING LIGHT",
+      "headline": "BONDS AREN'T\nBUYING IT.",
+      "cols": [
+        "JAN",
+        "MAY"
+      ],
+      "rows": [
+        {
+          "m": "CPI (YOY)",
+          "then": "2.4%",
+          "now": "4.2%",
+          "d": "+1.8PT",
+          "c": "r"
+        }
+      ],
+      "stats": [
+        {
+          "v": "5.0%",
+          "l": "30-YR TOUCHED · APR",
+          "c": "r"
+        },
+        {
+          "v": "4.46%",
+          "l": "10-YR NOW",
+          "c": "i"
+        },
+        {
+          "v": "3.75%",
+          "l": "FED RATE (TOP)",
+          "c": "i"
+        }
+      ]
+    },
+    {
+      "type": "yoy",
+      "words": 26,
+      "script": "And one more crack: hiring. May added one hundred and seventy-two thousand jobs. June? Just fifty-seven — half the forecast. The labor market is cooling, fast.",
+      "label": "THE OTHER CRACK",
+      "headline": "HIRING IS\nSTALLING.",
+      "cols": [
+        "MAY",
+        "JUN"
+      ],
+      "rows": [
+        {
+          "m": "JOBS ADDED",
+          "then": "172K",
+          "now": "57K",
+          "d": "-67%",
+          "c": "r"
+        }
+      ],
+      "stats": [
+        {
+          "v": "110K",
+          "l": "JUN FORECAST · MISSED",
+          "c": "a"
+        },
+        {
+          "v": "4.2%",
+          "l": "UNEMPLOYMENT",
+          "c": "i"
+        }
+      ]
+    },
+    {
+      "type": "yoy",
+      "words": 29,
+      "script": "Neither is Bitcoin having fun. Thirteen straight days of ETF outflows. Sixty-seven six, down to sixty thousand — a twenty-one month low. Two red quarters in a row.",
+      "label": "THE ODD ONE OUT",
+      "headline": "BITCOIN\nMISSED IT.",
+      "cols": [
+        "MAR 31",
+        "JUN 30"
+      ],
+      "rows": [
+        {
+          "m": "BITCOIN",
+          "then": "$67.6K",
+          "now": "$60K",
+          "d": "-11%",
+          "c": "r"
+        }
+      ],
+      "stats": [
+        {
+          "v": "13",
+          "l": "DAYS OF ETF OUTFLOWS",
+          "c": "r"
+        },
+        {
+          "v": "21-MO",
+          "l": "LOW · JUNE",
+          "c": "r"
+        },
+        {
+          "v": "2",
+          "l": "RED QUARTERS",
+          "c": "r"
+        }
+      ]
+    },
+    {
+      "type": "beat",
+      "words": 16,
+      "script": "So: stocks at records. Inflation rising. Jobs cooling. Bitcoin sinking. Pick your signal.",
+      "headline": "PICK YOUR\nSIGNAL.",
+      "sub": "records ↑ · inflation ↑ · jobs ↓ · bitcoin ↓"
+    },
+    {
+      "type": "outro",
+      "words": 31,
+      "script": "Next quarter: bank earnings open in mid-July. Warsh delivers his first official forecasts in September. And every single inflation print decides the rate path. Follow for the briefings — and see you in Q3.",
+      "headline": "SEE YOU\nIN Q3.",
+      "sub": "watch: bank earnings (mid-jul) · Warsh forecasts (sep) · every CPI print",
+      "next": "NEW BRIEFINGS · EVERY SAT · SUN · WED"
+    }
+  ],
+  "tail": 2.2
 }

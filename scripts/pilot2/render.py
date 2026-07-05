@@ -43,6 +43,7 @@ def synth_words(scenes, total):
 
 def build_timeline(m, total, words):
     scenes = m["scenes"]
+    tail = float(m.get("tail", 0))
     wsum = sum(s["words"] for s in scenes)
     # scene boundaries snapped to real word times
     cum, t0 = 0, 0.0
@@ -52,7 +53,7 @@ def build_timeline(m, total, words):
         t1 = words[idx]["t1"] if cum < wsum else total
         s["t0"], s["t1"] = round(t0,3), round(max(t1, t0+0.4),3)
         t0 = s["t1"]
-    scenes[-1]["t1"] = total
+    scenes[-1]["t1"] = total + tail
     # caption groups: <=4 words and <=1.6s
     caps, g = [], None
     for w in words:
@@ -63,7 +64,7 @@ def build_timeline(m, total, words):
     for i in range(len(caps)-1):           # hold until next group
         caps[i]["t1"] = caps[i+1]["t0"]
     caps[-1]["t1"] = total
-    return {"total": total, "brand": m["brand"], "ticker": m["ticker"],
+    return {"total": total + tail, "brand": m["brand"], "ticker": m["ticker"],
             "scenes": scenes, "captions": caps}
 
 def main():
@@ -100,7 +101,7 @@ def main():
                 page.evaluate(f"window.__seek({t})")
                 page.screenshot(path=os.path.join(frames, f"still_{t:05.1f}.png"))
             browser.close(); print("stills done"); return
-        n = int(total*fps)
+        n = int((total + float(m.get("tail", 0)))*fps)
         for f in range(n):
             page.evaluate(f"window.__seek({f/fps})")
             page.screenshot(path=os.path.join(frames, f"f{f:05d}.jpg"), type="jpeg", quality=92)
@@ -108,7 +109,8 @@ def main():
         browser.close()
     out = os.path.join(SP, m["output"])
     subprocess.run(["ffmpeg","-y","-framerate",str(fps),"-i",os.path.join(frames,"f%05d.jpg"),
-        "-i",audio,"-c:v","libx264","-preset","medium","-crf","19","-pix_fmt","yuv420p",
+        "-i",audio,"-af",f"apad=pad_dur={m.get('tail',0)}",
+        "-c:v","libx264","-preset","medium","-crf","19","-pix_fmt","yuv420p",
         "-c:a","aac","-b:a","160k","-shortest",out], check=True)
     print("done:", out)
 
