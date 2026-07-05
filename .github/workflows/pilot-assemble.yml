@@ -28,20 +28,20 @@ jobs:
       - name: Download narration from Higgsfield CDN
         working-directory: scripts/pilot2
         run: |
-          curl -sf -o qoq_narration.wav "$NARRATION_URL"
+          curl -sf -o sig_narration.wav "$NARRATION_URL"
           ls -la
         env:
-          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260705_052738_9fa78063-a373-46a1-9838-d2bb29db9fc2.wav
+          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260705_123821_537bc805-fb7d-43b5-ad78-b0ac5109421d.wav
 
       - name: Render motion graphics video
-        run: python3 scripts/pilot2/render.py scripts/pilot2/qoq2026.json
+        run: python3 scripts/pilot2/render.py scripts/pilot2/qoqsig.json
 
       - name: Commit result to branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p assets/pilot
-          cp scripts/pilot2/quarter-over-quarter-pilot.mp4 assets/pilot/
-          git add -f assets/pilot/quarter-over-quarter-pilot.mp4
-          git commit -m "Add CI-rendered pilot (Quarter over Quarter)"
+          cp scripts/pilot2/qoq-signature-pilot.mp4 assets/pilot/
+          git add -f assets/pilot/qoq-signature-pilot.mp4
+          git commit -m "Add CI-rendered pilot (Ledger signature metrics)"
           git push

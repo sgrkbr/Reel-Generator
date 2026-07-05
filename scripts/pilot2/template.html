@@ -213,7 +213,8 @@ function buildScene(s,i){
     inner+=`<div class="bars">${tks.map((tk,k)=>`<div class="col"><div class="b b${k}"></div><span class="tk tk${k}">${tk}</span></div>`).join("")}</div>`;
   }
   if(s.type==="surge"){
-    inner+=`<div class="big" style="color:var(--green);text-shadow:0 0 90px rgba(67,224,138,.45)"><span class="val">+0</span><span class="suf">%</span><div class="ring" style="border-color:var(--green)"></div></div>
+    const C={green:["var(--green)","rgba(67,224,138,.45)"],red:["var(--red)","rgba(255,81,71,.45)"],amber:["var(--amber)","rgba(255,176,58,.45)"]}[s.big.color||"green"];
+    inner+=`<div class="big" style="color:${C[0]};text-shadow:0 0 90px ${C[1]}"><span class="val"></span><span class="suf">${s.big.suffix!==undefined?s.big.suffix:"%"}</span><div class="ring" style="border-color:${C[0]}"></div></div>
       <div class="caption-big">${s.big.caption||""}</div>`;
   }
   if(s.type==="yoy"){
@@ -367,8 +368,9 @@ window.__seek=function(t){
     });
   }
   if(s.type==="surge"){
-    const v=(s.big.value*ee(clamp(p*1.7,0,1))).toFixed(1);
-    el.querySelector(".val").textContent="+"+v;
+    const dec=s.big.decimals!==undefined?s.big.decimals:1;
+    const v=(s.big.value*ee(clamp(p*1.7,0,1))).toFixed(dec);
+    el.querySelector(".val").textContent=(s.big.prefix!==undefined?s.big.prefix:"+")+v;
     const big=el.querySelector(".big");
     const done=p>0.62;
     big.style.transform=`scale(${done?1+0.05*Math.exp(-7*(p-0.62))*Math.cos(20*(p-0.62)):1})`;

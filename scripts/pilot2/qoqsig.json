@@ -1,0 +1,93 @@
+{
+  "audio": "sig_narration.wav",
+  "output": "qoq-signature-pilot.mp4",
+  "fps": 30,
+  "tail": 2.2,
+  "brand": {"series": "THE LEDGER · Q2 CLOSE", "date": "Q1 → Q2 2026", "handle": "@weeklyledger"},
+  "ticker": [
+    {"s": "WHIPLASH INDEX", "v": "19.2 · SHARPEST SINCE '20", "c": "d"},
+    {"s": "BREADTH SCORE", "v": "58/100", "c": "u"},
+    {"s": "$100K TRACKER", "v": "$95.7K → $110K", "c": "u"},
+    {"s": "S&P 500", "v": "Q1 -4.3% → Q2 +14.9%", "c": "u"},
+    {"s": "CPI", "v": "JAN 2.4% → MAY 4.2%", "c": "d"},
+    {"s": "JOBS", "v": "172K → 57K", "c": "d"},
+    {"s": "BTC", "v": "$67.6K → $60K (21-MO LOW)", "c": "d"}
+  ],
+  "scenes": [
+    {"type": "hook", "words": 19,
+     "script": "Your retirement account just lived through whiplash. Here's what ninety days did to your money — by the numbers.",
+     "headline": "WHAT Q2 DID\nTO YOUR\nMONEY.",
+     "sub": "3 numbers you won't get anywhere else",
+     "stats": [
+       {"v": "19.2", "l": "WHIPLASH INDEX", "c": "a"},
+       {"v": "58", "l": "BREADTH SCORE", "c": "a"},
+       {"v": "$110K", "l": "YOUR $100K · NOW", "c": "g"}
+     ]},
+    {"type": "surge", "words": 26,
+     "script": "First, our gauge. The Ledger Whiplash Index — how hard the market swung between quarters — just hit nineteen point two. The sharpest reversal since twenty-twenty.",
+     "label": "METRIC 01 · WHIPLASH INDEX",
+     "headline": "HOW HARD\nIT SWUNG.",
+     "big": {"value": 19.2, "decimals": 1, "prefix": "", "suffix": "", "color": "amber",
+             "caption": "|Q1 -4.3| + |Q2 +14.9| — sharpest quarter-to-quarter reversal since 2020"}},
+    {"type": "yoy", "words": 30,
+     "script": "Second: the Breadth Score. In Q1's crash, two hundred and ninety of the five hundred stocks still beat the index. Score: fifty-eight out of a hundred. Translation — the pain was five big names. Not the market.",
+     "label": "METRIC 02 · BREADTH SCORE",
+     "headline": "58/100:\nA NARROW\nCRASH.",
+     "cols": ["", "Q1 RETURN"],
+     "rows": [
+       {"m": "CAP-WEIGHTED", "then": "", "now": "-4.3%", "d": "5 NAMES' DRAG", "c": "r"},
+       {"m": "EQUAL-WEIGHT", "then": "", "now": "+0.7%", "d": "POSITIVE", "c": "g"}
+     ],
+     "stats": [
+       {"v": "290/500", "l": "STOCKS BEAT THE INDEX", "c": "a"}
+     ]},
+    {"type": "surge", "words": 19,
+     "script": "Because Q2 flipped everything: up fourteen point nine percent — the best quarter since twenty-twenty. Records at the Dow.",
+     "label": "Q2 · THE FLIP",
+     "headline": "BEST QUARTER\nSINCE 2020.",
+     "big": {"value": 14.9, "caption": "S&P 500 · Q2 2026 — Dow at a record"}},
+    {"type": "yoy", "words": 40,
+     "script": "Now, the part nobody else shows you: your money. A one hundred thousand dollar index fund in January, fell to ninety-five seven by March. By June thirtieth? About one hundred and ten thousand. The dip cost you nothing — unless you sold it.",
+     "label": "METRIC 03 · $100K TRACKER",
+     "headline": "YOUR $100K,\nTRACKED.",
+     "cols": ["JAN 1", "JUN 30"],
+     "rows": [
+       {"m": "INDEX FUND", "then": "$100.0K", "now": "$110.0K", "d": "+$10K", "c": "g"}
+     ],
+     "stats": [
+       {"v": "$95.7K", "l": "THE MARCH DIP", "c": "r"},
+       {"v": "$0", "l": "COST — IF YOU HELD", "c": "g"},
+       {"v": "-$14.3K", "l": "IF YOU SOLD THE DIP", "c": "r"}
+     ]},
+    {"type": "yoy", "words": 30,
+     "script": "But keep two warning lights on. Inflation: two point four in January. Four point two by May. And hiring just halved — fifty-seven thousand jobs, versus one seventy-two in May.",
+     "label": "TWO WARNING LIGHTS",
+     "headline": "CRACKS\nUNDERNEATH.",
+     "cols": ["THEN", "NOW"],
+     "rows": [
+       {"m": "CPI (JAN→MAY)", "then": "2.4%", "now": "4.2%", "d": "+1.8PT", "c": "r"},
+       {"m": "JOBS (MAY→JUN)", "then": "172K", "now": "57K", "d": "-67%", "c": "r"}
+     ]},
+    {"type": "yoy", "words": 25,
+     "script": "And Bitcoin never joined the party: thirteen days of ETF outflows, a twenty-one month low, two red quarters straight.",
+     "label": "THE ODD ONE OUT",
+     "headline": "BITCOIN\nSAT OUT.",
+     "cols": ["MAR 31", "JUN 30"],
+     "rows": [
+       {"m": "BITCOIN", "then": "$67.6K", "now": "$60K", "d": "-11%", "c": "r"}
+     ],
+     "stats": [
+       {"v": "13", "l": "DAYS OF ETF OUTFLOWS", "c": "r"},
+       {"v": "21-MO", "l": "LOW · JUNE", "c": "r"}
+     ]},
+    {"type": "beat", "words": 13,
+     "script": "So: records up top. Cracks underneath. That's the real Q2 scoreboard.",
+     "headline": "RECORDS UP TOP.\nCRACKS\nUNDERNEATH.",
+     "sub": "the real Q2 scoreboard"},
+    {"type": "outro", "words": 27,
+     "script": "Next quarter, we re-run every number: the Whiplash Index. The Breadth Score. And your hundred-K tracker. Same time, next quarter.",
+     "headline": "SAME NUMBERS.\nNEXT\nQUARTER.",
+     "sub": "whiplash index · breadth score · $100K tracker",
+     "next": "THE LEDGER METRICS · EVERY QUARTER"}
+  ]
+}
