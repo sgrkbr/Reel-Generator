@@ -1,0 +1,38 @@
+name: brand-assets
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/zen-hopper-214mam]
+    paths: ['.github/workflows/brand-assets.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Download brand candidates from Higgsfield CDN
+        working-directory: assets/brand
+        run: |
+          base=https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL
+          curl -sf -o logo1.png "$base/hf_20260705_130625_a35e9838-a21d-47b8-8301-22071b63c111.png"
+          curl -sf -o logo2.png "$base/hf_20260705_130625_a9b3c741-be9f-42d0-8cc5-179866168355.png"
+          curl -sf -o logo3.png "$base/hf_20260705_130625_010999b4-c9cf-4006-bc54-82b4749a81fd.png"
+          curl -sf -o logo4.png "$base/hf_20260705_130625_1f39245c-8b16-4b54-a812-ff9e492cd142.png"
+          curl -sf -o banner1.png "$base/hf_20260705_221415_037ea906-d217-470e-a9a8-c4999b17aab5.png"
+          curl -sf -o banner2.png "$base/hf_20260705_221415_0270fbd9-64ea-41b9-8eab-846e5593621a.png"
+          ls -la
+
+      - name: Commit result to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f assets/brand/*.png
+          git commit -m "Add brand asset candidates (logos + banner)" || echo "nothing to commit"
+          git push
