@@ -2,39 +2,89 @@
   "audio": "wa_narration.wav",
   "output": "the-week-ahead-v2.mp4",
   "fps": 30,
-  "brand": {"series": "THE WEEK AHEAD", "date": "JUL 6–10, 2026", "handle": "@weeklyledger"},
+  "brand": {
+    "series": "THE WEEK AHEAD",
+    "date": "JUL 6–10, 2026",
+    "handle": "@weeklyledger"
+  },
   "ticker": [
-    {"s": "S&P 500", "v": "+1.8%", "c": "u"},
-    {"s": "NASDAQ", "v": "+2.1%", "c": "u"},
-    {"s": "DOW", "v": "RECORD +2.0%", "c": "u"},
-    {"s": "10-YR", "v": "4.46%", "c": "d"},
-    {"s": "BTC", "v": "$61,100", "c": "u"},
-    {"s": "JOBS (JUN)", "v": "+57K MISS", "c": "d"}
+    {
+      "s": "S&P 500",
+      "v": "+1.8%",
+      "c": "u"
+    },
+    {
+      "s": "NASDAQ",
+      "v": "+2.1%",
+      "c": "u"
+    },
+    {
+      "s": "DOW",
+      "v": "RECORD +2.0%",
+      "c": "u"
+    },
+    {
+      "s": "10-YR",
+      "v": "4.46%",
+      "c": "d"
+    },
+    {
+      "s": "BTC",
+      "v": "$61,100",
+      "c": "u"
+    },
+    {
+      "s": "JOBS (JUN)",
+      "v": "+57K MISS",
+      "c": "d"
+    }
   ],
   "scenes": [
-    {"type": "hook", "words": 22,
-     "script": "A new Fed chair. His first meeting minutes. This week, we finally see what he's really thinking. Here's the week ahead.",
-     "headline": "NEW FED CHAIR.\nHIS FIRST\nMINUTES.",
-     "sub": "What is he <b>really</b> thinking?"},
-    {"type": "minutes", "words": 46,
-     "script": "Wednesday: the Federal Reserve releases minutes from its June meeting — the first under new chair Kevin Warsh. He famously skipped the dot plot, so these minutes are the closest look we'll get at his playbook. Watch how divided the committee was on the next move.",
-     "label": "WED · FOMC MINUTES",
-     "headline": "WARSH'S\nPLAYBOOK"},
-    {"type": "claims", "words": 33,
-     "script": "Thursday: weekly jobless claims. After June added just fifty-seven thousand jobs, one weak number is a blip — two is a trend. If claims climb again, expect rate-hike bets to fade even further.",
-     "label": "THU · JOBLESS CLAIMS",
-     "headline": "ONE MISS IS A BLIP.\nTWO IS A TREND.",
-     "big": {"value": 57, "suffix": "K", "caption": "jobs added in June — half of forecast"}},
-    {"type": "earnings", "words": 21,
-     "script": "And keep an eye on the runway: second-quarter earnings season kicks off next week, with the big banks going first.",
-     "label": "NEXT WEEK · Q2 EARNINGS",
-     "headline": "BANKS\nGO FIRST"},
-    {"type": "beat", "words": 19,
-     "script": "This week is the calm before that storm. A quiet calendar — which is exactly when surprises hit hardest.",
-     "headline": "QUIET\nCALENDAR.",
-     "sub": "that's when surprises <b>hit hardest</b>"},
-    {"type": "outro", "words": 7,
-     "script": "That's the week ahead. See you Saturday.",
-     "headline": "SEE YOU\nSATURDAY."}
+    {
+      "type": "hook",
+      "words": 22,
+      "script": "A new Fed chair. His first meeting minutes. This week, we finally see what he's really thinking. Here's the week ahead.",
+      "headline": "NEW FED CHAIR.\nHIS FIRST\nMINUTES.",
+      "sub": "What is he <b>really</b> thinking?"
+    },
+    {
+      "type": "minutes",
+      "words": 46,
+      "script": "Wednesday: the Federal Reserve releases minutes from its June meeting — the first under new chair Kevin Warsh. He famously skipped the dot plot, so these minutes are the closest look we'll get at his playbook. Watch how divided the committee was on the next move.",
+      "label": "WED · FOMC MINUTES",
+      "headline": "WARSH'S\nPLAYBOOK"
+    },
+    {
+      "type": "claims",
+      "words": 33,
+      "script": "Thursday: weekly jobless claims. After June added just fifty-seven thousand jobs, one weak number is a blip — two is a trend. If claims climb again, expect rate-hike bets to fade even further.",
+      "label": "THU · JOBLESS CLAIMS",
+      "headline": "BLIP,\nOR TREND?",
+      "big": {
+        "value": 57,
+        "suffix": "K",
+        "caption": "jobs added in June — half of forecast"
+      }
+    },
+    {
+      "type": "earnings",
+      "words": 21,
+      "script": "And keep an eye on the runway: second-quarter earnings season kicks off next week, with the big banks going first.",
+      "label": "NEXT WEEK · Q2 EARNINGS",
+      "headline": "BANKS\nGO FIRST"
+    },
+    {
+      "type": "beat",
+      "words": 19,
+      "script": "This week is the calm before that storm. A quiet calendar — which is exactly when surprises hit hardest.",
+      "headline": "QUIET\nCALENDAR.",
+      "sub": "that's when surprises <b>hit hardest</b>"
+    },
+    {
+      "type": "outro",
+      "words": 7,
+      "script": "That's the week ahead. See you Saturday.",
+      "headline": "SEE YOU\nSATURDAY."
+    }
   ]
 }
