@@ -54,6 +54,17 @@ html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;}
 .hl .uline{position:relative;}
 .sub{margin-top:36px;font-family:'InterV';font-weight:600;font-size:52px;line-height:1.3;color:var(--muted);max-width:920px;}
 .sub b{color:var(--ink);font-weight:800;}
+.stats{display:flex;gap:20px;margin-top:44px;flex-wrap:wrap;}
+.stat{background:rgba(16,24,35,.88);border:2px solid rgba(139,150,163,.32);border-radius:18px;
+  padding:18px 26px;min-width:220px;}
+.stat .v{display:block;font-family:'ArchivoBlack';font-size:56px;line-height:1.05;
+  font-variant-numeric:tabular-nums;letter-spacing:-0.01em;}
+.stat .l{display:block;margin-top:6px;font-family:'InterV';font-weight:700;font-size:24px;
+  color:var(--muted);letter-spacing:.08em;}
+.stat.g .v{color:var(--green);text-shadow:0 0 30px rgba(67,224,138,.4);}
+.stat.r .v{color:var(--red);text-shadow:0 0 30px rgba(255,81,71,.4);}
+.stat.a .v{color:var(--amber);text-shadow:0 0 30px rgba(255,176,58,.4);}
+.stat.i .v{color:var(--ink);}
 .chipsrow{display:flex;flex-wrap:wrap;gap:18px;margin-top:44px;}
 .chipx{font-family:'InterV';font-weight:800;font-size:33px;letter-spacing:.05em;color:var(--ink);
   border:3px solid rgba(139,150,163,.5);border-radius:14px;padding:12px 24px;}
@@ -88,6 +99,14 @@ html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;}
 .chart .pv{font-family:'ArchivoBlack';font-size:56px;fill:var(--ink);}
 .chart .pl{font-size:33px;fill:var(--muted);letter-spacing:.08em;}
 .chart .fl{font-size:33px;fill:var(--amber);letter-spacing:.05em;font-weight:800;}
+/* claims compaction */
+.claims .big{font-size:272px;}
+.claims .big .suf{font-size:160px;}
+.claims .chart{margin-top:26px;}
+.claims .stats{margin-top:30px;gap:16px;}
+.claims .stat{padding:13px 20px;min-width:170px;}
+.claims .stat .v{font-size:42px;}
+.claims .stat .l{font-size:21px;}
 /* beat */
 #flash{position:absolute;inset:0;background:var(--amber);opacity:0;z-index:25;}
 .beat .hl span{font-size:138px;}
@@ -134,7 +153,7 @@ function lineHTML(text){return text.split("\n").map(l=>`<div class="hl"><span>${
 
 function buildScene(s,i){
   const d=document.createElement("div");
-  d.className="sc sc"+i+(s.type==="beat"?" beat":"")+(s.type==="outro"?" outro":"");
+  d.className="sc sc"+i+" "+s.type;
   let inner=`<div class="center">`;
   if(s.label)inner+=`<div class="label">${s.label}</div>`;
   inner+=`<div class="h">${lineHTML(s.headline)}</div>`;
@@ -167,6 +186,8 @@ function buildScene(s,i){
     inner+=`<div class="bars">${tks.map((tk,k)=>`<div class="col"><div class="b b${k}"></div><span class="tk tk${k}">${tk}</span></div>`).join("")}</div>`;
   }
   if(s.sub)inner+=`<div class="sub">${s.sub}</div>`;
+  if(s.stats)inner+=`<div class="stats">${s.stats.map((st,k)=>
+    `<div class="stat ${st.c} st${k}"><span class="v">${st.v}</span><span class="l">${st.l}</span></div>`).join("")}</div>`;
   if(s.type==="outro")inner+=`<div class="nexttag">NEXT: WEEK IN MONEY · SATURDAY 9AM ET</div><div class="pulse"></div>`;
   inner+=`</div>`;
   d.innerHTML=inner;
@@ -235,6 +256,13 @@ window.__seek=function(t){
   const sub=el.querySelector(".sub");
   if(sub){const spn=eo(clamp((ts-0.5)/0.4,0,1));sub.style.opacity=spn;sub.style.transform=`translateY(${(1-spn)*40}px)`;}
 
+  // stat tiles: staggered overshoot pop + gentle float
+  el.querySelectorAll(".stat").forEach((st,k)=>{
+    const start=0.34+0.12*k;
+    const sp2=ob(clamp((p-start)/0.16,0,1));
+    st.style.opacity=clamp((p-start)/0.06,0,1);
+    st.style.transform=`translateY(${(1-sp2)*70+4*Math.sin(ts*1.8+k*2)}px) scale(${0.85+0.15*sp2})`;
+  });
   let shake=0;
   if(s.type==="claims"){
     const v=Math.round(s.big.value*ee(clamp(p*1.7,0,1)));

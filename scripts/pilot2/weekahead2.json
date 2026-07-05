@@ -45,7 +45,24 @@
       "words": 22,
       "script": "A new Fed chair. His first meeting minutes. This week, we finally see what he's really thinking. Here's the week ahead.",
       "headline": "NEW FED CHAIR.\nHIS FIRST\nMINUTES.",
-      "sub": "What is he <b>really</b> thinking?"
+      "sub": "What is he <b>really</b> thinking?",
+      "stats": [
+        {
+          "v": "+2.0%",
+          "l": "DOW · RECORD",
+          "c": "g"
+        },
+        {
+          "v": "+4.8%",
+          "l": "AAPL THIS WEEK",
+          "c": "g"
+        },
+        {
+          "v": "4.46%",
+          "l": "10-YR YIELD",
+          "c": "r"
+        }
+      ]
     },
     {
       "type": "minutes",
@@ -64,14 +81,48 @@
         "value": 57,
         "suffix": "K",
         "caption": "jobs added in June — half of forecast"
-      }
+      },
+      "stats": [
+        {
+          "v": "4.2%",
+          "l": "UNEMPLOYMENT",
+          "c": "i"
+        },
+        {
+          "v": "-48%",
+          "l": "VS FORECAST",
+          "c": "r"
+        },
+        {
+          "v": "FEB",
+          "l": "SOFTEST SINCE",
+          "c": "a"
+        }
+      ]
     },
     {
       "type": "earnings",
       "words": 21,
       "script": "And keep an eye on the runway: second-quarter earnings season kicks off next week, with the big banks going first.",
       "label": "NEXT WEEK · Q2 EARNINGS",
-      "headline": "BANKS\nGO FIRST"
+      "headline": "BANKS\nGO FIRST",
+      "stats": [
+        {
+          "v": "+1.8%",
+          "l": "S&P THIS WEEK",
+          "c": "g"
+        },
+        {
+          "v": "+2.1%",
+          "l": "NASDAQ",
+          "c": "g"
+        },
+        {
+          "v": "Q2",
+          "l": "KICKOFF NEXT WEEK",
+          "c": "a"
+        }
+      ]
     },
     {
       "type": "beat",
