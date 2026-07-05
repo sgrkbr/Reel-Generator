@@ -99,6 +99,30 @@ html,body{width:1080px;height:1920px;background:var(--bg);overflow:hidden;}
 .chart .pv{font-family:'ArchivoBlack';font-size:56px;fill:var(--ink);}
 .chart .pl{font-size:33px;fill:var(--muted);letter-spacing:.08em;}
 .chart .fl{font-size:33px;fill:var(--amber);letter-spacing:.05em;font-weight:800;}
+/* yoy comparison rows */
+.yoyrows{margin-top:56px;width:100%;max-width:952px;}
+.yr{display:flex;align-items:baseline;gap:26px;margin-top:44px;}
+.yr .m{width:260px;font-family:'InterV';font-weight:800;font-size:34px;color:var(--muted);letter-spacing:.06em;}
+.yr .then{font-family:'ArchivoBlack';font-size:56px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.yr .ar{font-family:'ArchivoBlack';font-size:56px;color:var(--amber);transform-origin:left center;}
+.yr .nowv{font-family:'ArchivoBlack';font-size:76px;font-variant-numeric:tabular-nums;letter-spacing:-0.01em;}
+.yr .dl{font-family:'InterV';font-weight:800;font-size:30px;padding:6px 16px;border-radius:12px;color:#0B0F16;}
+.yr.g .nowv{color:var(--green);text-shadow:0 0 34px rgba(67,224,138,.4);} .yr.g .dl{background:var(--green);}
+.yr.r .nowv{color:var(--red);text-shadow:0 0 34px rgba(255,81,71,.4);} .yr.r .dl{background:var(--red);}
+.yr.i .nowv{color:var(--ink);} .yr.i .dl{background:var(--muted);}
+.yoyhead{display:flex;gap:26px;margin-top:8px;margin-left:286px;}
+.yoyhead span{font-family:'InterV';font-weight:800;font-size:26px;letter-spacing:.14em;color:var(--muted);}
+/* btc 3-point chart */
+.btcchart{margin-top:40px;position:relative;}
+.btcchart svg{overflow:visible;}
+.btcchart .ln2{fill:none;stroke:var(--red);stroke-width:11;stroke-linecap:round;stroke-linejoin:round;
+  filter:drop-shadow(0 0 14px rgba(255,81,71,.6));}
+.btcchart .pt{fill:var(--red);stroke:#0B0F16;stroke-width:5;}
+.btcchart .pk{fill:var(--amber);stroke:#0B0F16;stroke-width:5;}
+.btcchart text{font-family:'InterV';font-weight:800;}
+.btcchart .bv{font-family:'ArchivoBlack';font-size:52px;fill:var(--ink);}
+.btcchart .bl{font-size:29px;fill:var(--muted);letter-spacing:.08em;}
+.btcchart .atl{fill:var(--amber);}
 /* claims compaction */
 .claims .big{font-size:272px;}
 .claims .big .suf{font-size:160px;}
@@ -185,10 +209,29 @@ function buildScene(s,i){
     const tks=s.tickers||["JPM","BAC","WFC","GS","C"];
     inner+=`<div class="bars">${tks.map((tk,k)=>`<div class="col"><div class="b b${k}"></div><span class="tk tk${k}">${tk}</span></div>`).join("")}</div>`;
   }
+  if(s.type==="yoy"){
+    inner+=`<div class="yoyrows"><div class="yoyhead"><span>JUL '25</span><span style="margin-left:120px">JUL '26</span></div>
+      ${s.rows.map((r,k)=>`<div class="yr ${r.c} yr${k}">
+        <span class="m">${r.m}</span><span class="then">${r.then}</span>
+        <span class="ar">→</span><span class="nowv">${r.now}</span><span class="dl">${r.d}</span>
+      </div>`).join("")}</div>`;
+  }
+  if(s.type==="btc"){
+    inner+=`<div class="big" style="color:var(--red)"><span class="val">0</span><span class="suf">%</span><div class="ring"></div></div>
+      <div class="btcchart"><svg width="940" height="320" viewBox="0 0 940 320">
+        <polyline class="ln2" points="90,150 440,44 850,268"/>
+        <circle class="pt q1" cx="90" cy="150" r="16"/>
+        <circle class="pk q2" cx="440" cy="44" r="16"/>
+        <circle class="pt q3" cx="850" cy="268" r="18"/>
+        <text class="bl w1" x="34" y="216">JUL '25</text><text class="bv w1" x="24" y="268">$108K</text>
+        <text class="bl atl w2" x="360" y="-6">OCT '25 · ATH</text><text class="bv w2" x="386" y="-46" style="fill:var(--amber)">$126K</text>
+        <text class="bl w3" x="770" y="188">NOW</text><text class="bv w3" x="736" y="136" style="fill:var(--red)">$63K</text>
+      </svg></div>`;
+  }
   if(s.sub)inner+=`<div class="sub">${s.sub}</div>`;
   if(s.stats)inner+=`<div class="stats">${s.stats.map((st,k)=>
     `<div class="stat ${st.c} st${k}"><span class="v">${st.v}</span><span class="l">${st.l}</span></div>`).join("")}</div>`;
-  if(s.type==="outro")inner+=`<div class="nexttag">NEXT: WEEK IN MONEY · SATURDAY 9AM ET</div><div class="pulse"></div>`;
+  if(s.type==="outro")inner+=`<div class="nexttag">${s.next||""}</div><div class="pulse"></div>`;
   inner+=`</div>`;
   d.innerHTML=inner;
   return d;
@@ -314,6 +357,44 @@ window.__seek=function(t){
       const kp=eo(clamp((p-0.09*k-0.28)/0.2,0,1));
       tk.style.opacity=kp; tk.style.transform=`translateY(${(1-kp)*30}px)`;
     });
+  }
+  if(s.type==="yoy"){
+    el.querySelectorAll(".yr").forEach((row,k)=>{
+      const st=0.12+0.22*k;
+      const rp2=eo(clamp((p-st)/0.10,0,1));
+      row.style.opacity=rp2;
+      row.querySelector(".then").style.transform=`translateX(${(1-rp2)*-60}px)`;
+      const ar=row.querySelector(".ar");
+      ar.style.transform=`scaleX(${ob(clamp((p-st-0.05)/0.12,0,1))})`;
+      const nv=row.querySelector(".nowv");
+      const np=ob(clamp((p-st-0.10)/0.14,0,1));
+      nv.style.display="inline-block";
+      nv.style.transform=`scale(${0.6+0.4*np})`;
+      nv.style.opacity=clamp((p-st-0.10)/0.05,0,1);
+      const dl=row.querySelector(".dl");
+      const dp2=ob(clamp((p-st-0.20)/0.12,0,1));
+      dl.style.display="inline-block";
+      dl.style.opacity=clamp((p-st-0.20)/0.05,0,1);
+      dl.style.transform=`scale(${0.5+0.5*dp2}) rotate(${(1-dp2)*-6}deg)`;
+    });
+  }
+  if(s.type==="btc"){
+    const v=Math.round(42*ee(clamp(p*1.5,0,1)));
+    el.querySelector(".val").textContent="-"+v;
+    const big=el.querySelector(".big");
+    const done=p>0.62;
+    big.style.transform=`scale(${done?1+0.05*Math.exp(-7*(p-0.62))*Math.cos(20*(p-0.62)):1})`;
+    const ring=el.querySelector(".ring");
+    if(done){const rp=clamp((p-0.62)/0.11,0,1);ring.style.opacity=(1-rp)*0.9;ring.style.transform=`scale(${1+rp*7})`;}
+    const ln=el.querySelector(".ln2"), L=1500;
+    const dp=ee(clamp((p-0.12)/0.5,0,1));
+    ln.style.strokeDasharray=L; ln.style.strokeDashoffset=L*(1-dp);
+    [[".q1",0.14],[".q2",0.34],[".q3",0.58]].forEach(([q,st])=>{
+      el.querySelector(q).style.opacity=p>st?1:0;});
+    [[".w1",0.18],[".w2",0.38],[".w3",0.60]].forEach(([w,st])=>{
+      const o=eo(clamp((p-st)/0.12,0,1));
+      el.querySelectorAll(w).forEach(e=>e.style.opacity=o);});
+    if(done&&p<0.7)shake=Math.max(shake,0.5*Math.exp(-14*(p-0.62)));
   }
   let flash=enterF;
   if(s.type==="beat"){

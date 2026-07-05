@@ -28,20 +28,20 @@ jobs:
       - name: Download narration from Higgsfield CDN
         working-directory: scripts/pilot2
         run: |
-          curl -sf -o wa_narration.wav "$NARRATION_URL"
+          curl -sf -o yoy_narration.wav "$NARRATION_URL"
           ls -la
         env:
-          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260704_133953_48c8f685-3426-4be4-8408-7c6e7d9bec70.wav
+          NARRATION_URL: https://d8j0ntlcm91z4.cloudfront.net/user_3DHZDwYAr0mvwHad9r4Zby8yRNL/hf_20260705_014826_8f343765-d21f-4c20-8989-324f44346959.wav
 
       - name: Render motion graphics video
-        run: python3 scripts/pilot2/render.py scripts/pilot2/weekahead2.json
+        run: python3 scripts/pilot2/render.py scripts/pilot2/yoy2026.json
 
       - name: Commit result to branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p assets/pilot
-          cp scripts/pilot2/the-week-ahead-v2.mp4 assets/pilot/
-          git add -f assets/pilot/the-week-ahead-v2.mp4
-          git commit -m "Add CI-rendered motion graphics pilot (The Week Ahead v2)"
+          cp scripts/pilot2/year-over-year-pilot.mp4 assets/pilot/
+          git add -f assets/pilot/year-over-year-pilot.mp4
+          git commit -m "Add CI-rendered pilot (Year over Year)"
           git push

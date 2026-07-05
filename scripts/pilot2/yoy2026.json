@@ -1,0 +1,57 @@
+{
+  "audio": "yoy_narration.wav",
+  "output": "year-over-year-pilot.mp4",
+  "fps": 30,
+  "brand": {"series": "YEAR OVER YEAR", "date": "JUL 2025 → JUL 2026", "handle": "@weeklyledger"},
+  "ticker": [
+    {"s": "S&P 500", "v": "6,280 → 7,483 (+19%)", "c": "u"},
+    {"s": "BTC", "v": "$108K → $63K (-42%)", "c": "d"},
+    {"s": "CPI", "v": "2.7% → 4.2%", "c": "d"},
+    {"s": "FED RATE", "v": "4.50% → 3.75%", "c": "u"},
+    {"s": "UNEMPLOYMENT", "v": "4.1% → 4.2%", "c": "d"},
+    {"s": "DOW", "v": "RECORD CLOSE", "c": "u"}
+  ],
+  "scenes": [
+    {"type": "hook", "words": 14,
+     "script": "Twelve months. Same market? Not even close. Here's July 2025, versus July 2026.",
+     "headline": "ONE YEAR.\nTWO\nMARKETS.",
+     "sub": "July 2025 <b>vs</b> July 2026",
+     "stats": [
+       {"v": "+19%", "l": "S&P 500 · YOY", "c": "g"},
+       {"v": "-42%", "l": "BITCOIN · YOY", "c": "r"},
+       {"v": "4.2%", "l": "INFLATION NOW", "c": "a"}
+     ]},
+    {"type": "yoy", "words": 25,
+     "script": "Start with stocks. The S&P 500: sixty-two eighty then. Seventy-four eighty-three now — up nineteen percent, and the Dow just closed at a record.",
+     "label": "STOCKS · YOY",
+     "headline": "STILL\nCLIMBING.",
+     "rows": [
+       {"m": "S&P 500", "then": "6,280", "now": "7,483", "d": "+19%", "c": "g"}
+     ],
+     "stats": [
+       {"v": "RECORD", "l": "DOW · JUL 2 CLOSE", "c": "g"},
+       {"v": "+2.1%", "l": "NASDAQ THIS WEEK", "c": "g"}
+     ]},
+    {"type": "btc", "words": 28,
+     "script": "Now, the other side. Bitcoin was around one hundred and eight thousand dollars a year ago. Today: sixty-three thousand. Down forty-two percent — after touching one twenty-six in October.",
+     "label": "BITCOIN · YOY",
+     "headline": "CUT NEARLY\nIN HALF."},
+    {"type": "yoy", "words": 30,
+     "script": "And here's the twist. Inflation was two point seven. Now it's four point two — even after the Fed cut rates. That math is exactly why rate-hike talk is back.",
+     "label": "THE TWIST",
+     "headline": "INFLATION\nIS BACK.",
+     "rows": [
+       {"m": "CPI (YOY)", "then": "2.7%", "now": "4.2%", "d": "+1.5PT", "c": "r"},
+       {"m": "FED RATE", "then": "4.50%", "now": "3.75%", "d": "CUT", "c": "i"},
+       {"m": "JOBLESS", "then": "4.1%", "now": "4.2%", "d": "+0.1PT", "c": "i"}
+     ]},
+    {"type": "beat", "words": 11,
+     "script": "Oh — and the man in charge? Powell out. Warsh in.",
+     "headline": "POWELL OUT.\nWARSH IN.",
+     "sub": "the Fed has a <b>new boss</b>"},
+    {"type": "outro", "words": 10,
+     "script": "Same market. Very different year. That's your year over year.",
+     "headline": "SAME MARKET.\nDIFFERENT\nYEAR.",
+     "next": "NEW BRIEFINGS · EVERY SAT · SUN · WED"}
+  ]
+}
