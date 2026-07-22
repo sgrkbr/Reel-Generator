@@ -7,9 +7,12 @@ on:
         description: "Dry run (no real posts)"
         required: false
         default: "true"
-  schedule:
-    # Daily at 09:00 UTC. Adjust to match your audience time zone.
-    - cron: "0 9 * * *"
+  # Scheduled auto-run disabled: Postiz was never deployed (POSTIZ_BASE_URL /
+  # POSTIZ_API_KEY secrets unset), so the daily cron failed every run.
+  # This pipeline is discontinued for now; re-enable the schedule block
+  # below once Postiz is set up per docs/08-setup.md, if this is revisited.
+  # schedule:
+  #   - cron: "0 9 * * *"
 
 concurrency:
   group: publish
